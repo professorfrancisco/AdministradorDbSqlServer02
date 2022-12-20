@@ -1,0 +1,5 @@
+Crie uma consulta que retorne os valores Da tabela Fornecedor: nome, data de cadastro
+da tabela tipo_fornecedor nome
+da tabela contato nome
+da tabela colaborador cpf, nome, data_nascimento, data_cadastro, rg, orgao_rg
+da tabela setor nome
