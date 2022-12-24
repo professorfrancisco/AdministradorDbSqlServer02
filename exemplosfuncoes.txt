@@ -1,4 +1,5 @@
 
+  
   use senai;
 
   select nome, len(NOME)
@@ -27,6 +28,8 @@
   select 
   trim(NOME)
   from TESTE;
+
+  select reverse(upper(trim(NOME))) from teste;
 
   INSERT INTO TESTE(ID,NOME) values (4,'  PEDRO HENRRIQUE  ');
 
