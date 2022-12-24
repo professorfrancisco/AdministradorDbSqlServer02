@@ -1,0 +1,102 @@
+
+  use senai;
+
+  select nome, len(NOME)
+  from cargo;
+
+  select lower(nome)
+  from cargo;
+
+  create table TESTE (
+  ID int primary key,
+  NOME varchar(50)
+  );
+
+  INSERT INTO TESTE(ID,NOME) values (1,'  JOÃO'),(2,'FRANCISCO  '),(3,'  MARIA  ');
+
+  select * from teste;
+
+  select 
+  ltrim(NOME)
+  from TESTE;
+
+  select 
+  rtrim(NOME)
+  from TESTE;
+
+  select 
+  trim(NOME)
+  from TESTE;
+
+  INSERT INTO TESTE(ID,NOME) values (4,'  PEDRO HENRRIQUE  ');
+
+  select
+  replicate(nome,3)
+  from CARGO;
+
+  select 
+  reverse(nome)
+  from cargo
+
+  INSERT INTO TESTE(ID,NOME) values (5,'paulo');
+
+  select 
+  upper(NOME)
+  from TESTE;
+
+  select 
+  unicode(NOME)
+  from teste
+
+  select 
+  pi()
+  from teste
+
+  select distinct
+  power(2,3)
+  from teste;
+
+  select distinct
+  radians(700)
+  from teste;
+
+  select
+  4.23 * 2.43,
+  round((4.23 * 2.43),2),
+  round((4.23 * 2.43),2,1)
+  from CARGO
+
+select user_name(4);
+select user_ID('sys');
+
+select suser_name();
+
+select DB_ID('SENAI2');
+
+select DB_NAME(1);
+
+SELECT HOST_id();
+
+SELECT HOST_NAME();
+
+SELECT CURRENT_TIMESTAMP;
+
+	CREATE TABLE TESTE2(
+	ID int primary key,
+	NOME varchar(100),
+	IDADE int,
+	DATA_HORA datetime);
+
+insert into teste2(id,nome,idade,data_hora) values (1,'FRANCISCO',34,CURRENT_TIMESTAMP);
+
+SELECT data_hora,DATEPART(weekday,DATA_HORA) FROM TESTE2;
+
+SELECT YEAR('2010-04-30T01:01:01.1234567-07:00');  
+
+SELECT DATEPART(YEAR,'2022-12-04'); 
+SELECT DATEPART(DAY,'2022-12-04');
+SELECT DATEPART(MONTH,'2022-12-04'); 
+			
+SELECT DATEPART (YEAR, '2007-05-10  00:00:01.1234567 +05:10');  
+
+--https://learn.microsoft.com/pt-br/sql/t-sql/functions/datepart-transact-sql?view=sql-server-ver16
