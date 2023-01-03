@@ -1,0 +1,10 @@
+--Crie uma procedure que retorne o nome e a data de cadastro Da tabela Fornecedor
+--o nome na tabela tipo_fornecedor 
+--o contato na tabela contato
+--o cpf, nome, data_nascimento, data_cadastro, rg, orgao_rg da tabela colaborador
+--o nome tabela setor
+--crie uma variavel para filtrar pelo cpf_cnpj do fornecedor
+
+insert into fornecedor(SITUACAO_FOR_CLI_ID,TIPO_FORNECEDOR_ID,ID_EMPRESA,NOME,CPF_CNPJ,RG,ORGAO_RG,INSCRICAO_ESTADAL,INSCRICAO_MUNICIPAL,DESDE,TIPO_PESSOA,EXCLUIDO,DATA_CADASTRO)
+values(1,1,1,'JOÃO','254543543','454543234','ssp/df','54545435','4554354',null,'1','1','2022-03-01'),
+(1,1,1,'Maria','4636536','34343344','ssp/df','6345653','4555654',null,'1','1','2022-01-02');
