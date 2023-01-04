@@ -1,6 +1,6 @@
 --Crie uma procedure que retorne o nome e a data de cadastro Da tabela Fornecedor
 --o nome na tabela tipo_fornecedor 
---o contato na tabela contato
+--o nome na tabela contato
 --o cpf, nome, data_nascimento, data_cadastro, rg, orgao_rg da tabela colaborador
 --o nome tabela setor
 --crie uma variavel para filtrar pelo cpf_cnpj do fornecedor
