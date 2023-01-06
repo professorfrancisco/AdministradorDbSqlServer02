@@ -1,0 +1,29 @@
+/****** Script do comando SelectTopNRows de SSMS  ******/
+select 
+nome,
+salario as salario_bruto,
+
+case 
+when salario <= 1212.00 then (salario * 7.5)/100
+when salario >1212.01 and salario < 2427.35 then salario * 0.09 --(salario * 9)/100
+when salario >2427.36 and salario < 3641.03 then (salario * 12)/100
+when salario >3641.04 and salario < 7087.22 then (salario * 14)/100
+when salario >7087.23 then (salario * 16)/100
+end as aliquota_inss,
+
+case
+when salario <= 1903.98 then 0
+when salario > 1903.99 and salario < 2826.65 then (salario * 7.5)/100
+when salario > 2826.66 and salario < 3751.05 then (salario * 15)/100
+when salario > 3751.06 and salario < 4664.68 then (salario * 22.5)/100
+when salario > 4664.68 then (salario * 27.5)/100 
+end as aliquota_irrf,
+
+case
+when salario = 8000 then salario - (((salario * 16)/100) + ((salario * 27.5)/100))
+when salario = 5500 then salario - (((salario * 14)/100) + ((salario * 27.5)/100))
+when salario = 6000 then salario - (((salario * 14)/100) + ((salario * 27.5)/100))
+when salario = 1900 then salario - (salario * 0.09)
+when salario = 2500 then salario - (((salario * 12)/100) + ((salario * 7.5)/100))
+end as salario_liquido
+from CARGO;
