@@ -1,0 +1,1012 @@
+Avaliação Final
+
+Você foi contratado para ser o DBA da empresa Global Internacional, e sua primeira tarefa será criar um modelo de
+dados relacional para armazenar os dados dos funcionários. 
+Esta multinacional opera em seis países: Espanha, França, Portugal, Irlanda, Itália e Reino Unido. 
+Além de construir o modelo do banco de dados, você também deverá emitir um relatório contendo as seguintes
+informações: nome do funcionário, cargo, idade, sexo, telefone, 
+país de nascimento, endereço residencial, conta corrente, agência, banco, moeda local, salário bruto, 
+salário líquido, taxa de imposto, país onde o funcionário trabalha, nome da empresa, logo da empresa, 
+endereço da empresa e telefone da empresa.  
+
+
+https://agoraeuropa.com/guia-do-imigrante/calcule-as-taxas-aplicadas-aos-salarios-em-paises-da-europa/
+
+
+function Portugal() {
+    salary = document.getElementById("salario").value;
+    var tax_one = 14.5
+    var tax_two = 23.0
+    var tax_three = 28.5
+    var tax_fourth = 35.0
+    var tax_fifth = 37.0
+    var tax_sixth = 45.0
+    var tax_seventh = 48.0
+    if (salary < 7112) {
+        const soc_sec = (salary / 100) * 11
+        var first_taxation = (salary - soc_sec) * (tax_one / 100);
+        var range_deduction = first_taxation + soc_sec;
+        const sum_deductions = first_taxation;
+
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " em Portugal, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Esse valor Ã© a soma da contribuiÃ§Ã£o para Seguridade Social (" + formatter.format(soc_sec) + "), que corresponde a 11% do salÃ¡rio bruto, e o imposto sobre o salÃ¡rio (" + formatter.format(sum_deductions) + "), que varia de acordo com o rendimento anual de cada pessoa.<br><br>Os salÃ¡rios portugueses sÃ£o taxados de forma progressiva. Isso significa que quanto maior o salÃ¡rio, maior serÃ¡ o desconto aplicado. As deduÃ§Ãµes sÃ£o realizadas por faixas salariais que, no paÃ­s, sÃ£o separadas em sete nÃ­veis. Isso significa, por exemplo, que um salÃ¡rio anual de 81,9 mil sofre deduÃ§Ãµes em sete faixas, conforme detalhado abaixo.<br><br>De â‚¬ 0 a â‚¬ 7,112: 14.5%<br>de â‚¬ 7,112 a 10,732: 23%<br>de â‚¬ 10,732 a 20,322: 28%<br>de â‚¬ 20,322 a 25,075: 35%<br>de â‚¬ 25,075 a 36,967: 37%<br>de â‚¬ 36,967 a 80,882: 45%<br>Acima de 80,882: 48%<br><br>As taxas aplicadas sobre os salÃ¡rios dos trabalhadores portugueses consideram apenas a parcela dedutÃ­vel da remuneraÃ§Ã£o; ou seja, antes de aplicar a porcentagem de deduÃ§Ã£o, Ã© descontado primeiro o valor referente Ã  Seguridade Social. SÃ³ entÃ£o Ã© aplicada a taxa sobre o salÃ¡rio. <br><br>Para ficar mais claro, Ã© possÃ­vel considerar um salÃ¡rio de â‚¬ 20 mil como exemplo. O valor de contribuiÃ§Ã£o social (11%) serÃ¡ de â‚¬ 2,2 mil. Logo, o salÃ¡rio serÃ¡ taxado apenas sobre o valor restante, que Ã© de â‚¬ 17,8 mil. JÃ¡ para quem nÃ£o Ã© residente do paÃ­s, o cÃ¡lculo Ã© bem mais fÃ¡cil. O governo portuguÃªs aplica a taxa fixa de 25% sobre o salÃ¡rio para esse grupo de pessoas."
+    }
+    if (salary >= 7112 && salary < 10732) {
+        const soc_sec = (salary / 100) * 11
+        var first_taxation = 7112 * (tax_one / 100);
+        var second_taxation = ((salary - soc_sec) - 7112) * (tax_two / 100);
+        var range_deduction = first_taxation + second_taxation + soc_sec;
+        const sum_deductions = range_deduction - soc_sec;
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " em Portugal, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Esse valor Ã© a soma da contribuiÃ§Ã£o para Seguridade Social (" + formatter.format(soc_sec) + "), que corresponde a 11% do salÃ¡rio bruto, e o imposto sobre o salÃ¡rio (" + formatter.format(sum_deductions) + "), que varia de acordo com o rendimento anual de cada pessoa.<br><br>Os salÃ¡rios portugueses sÃ£o taxados de forma progressiva. Isso significa que quanto maior o salÃ¡rio, maior serÃ¡ o desconto aplicado. As deduÃ§Ãµes sÃ£o realizadas por faixas salariais que, no paÃ­s, sÃ£o separadas em sete nÃ­veis. Isso significa, por exemplo, que um salÃ¡rio anual de 81,9 mil sofre deduÃ§Ãµes em sete faixas, conforme detalhado abaixo.<br><br>De â‚¬ 0 a â‚¬ 7,112: 14.5%<br>de â‚¬ 7,112 a 10,732: 23%<br>de â‚¬ 10,732 a 20,322: 28%<br>de â‚¬ 20,322 a 25,075: 35%<br>de â‚¬ 25,075 a 36,967: 37%<br>de â‚¬ 36,967 a 80,882: 45%<br>Acima de 80,882: 48%<br><br>As taxas aplicadas sobre os salÃ¡rios dos trabalhadores portugueses consideram apenas a parcela dedutÃ­vel da remuneraÃ§Ã£o; ou seja, antes de aplicar a porcentagem de deduÃ§Ã£o, Ã© descontado primeiro o valor referente Ã  Seguridade Social. SÃ³ entÃ£o Ã© aplicada a taxa sobre o salÃ¡rio. <br><br>Para ficar mais claro, Ã© possÃ­vel considerar um salÃ¡rio de â‚¬ 20 mil como exemplo. O valor de contribuiÃ§Ã£o social (11%) serÃ¡ de â‚¬ 2,2 mil. Logo, o salÃ¡rio serÃ¡ taxado apenas sobre o valor restante, que Ã© de â‚¬ 17,8 mil. JÃ¡ para quem nÃ£o Ã© residente do paÃ­s, o cÃ¡lculo Ã© bem mais fÃ¡cil. O governo portuguÃªs aplica a taxa fixa de 25% sobre o salÃ¡rio para esse grupo de pessoas."
+    }
+    if (salary >= 10732 && salary < 20322) {
+        const soc_sec = (salary / 100) * 11
+        var first_taxation = 7112 * (tax_one / 100);
+        var second_taxation = (10732 - 7112) * (tax_two / 100);
+        var third_taxation = ((salary - soc_sec) - 10732) * (tax_three / 100);
+        var range_deduction = first_taxation + second_taxation + third_taxation + soc_sec;
+        const sum_deductions = range_deduction - soc_sec;
+
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " em Portugal, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Esse valor Ã© a soma da contribuiÃ§Ã£o para Seguridade Social (" + formatter.format(soc_sec) + "), que corresponde a 11% do salÃ¡rio bruto, e o imposto sobre o salÃ¡rio (" + formatter.format(sum_deductions) + "), que varia de acordo com o rendimento anual de cada pessoa.<br><br>Os salÃ¡rios portugueses sÃ£o taxados de forma progressiva. Isso significa que quanto maior o salÃ¡rio, maior serÃ¡ o desconto aplicado. As deduÃ§Ãµes sÃ£o realizadas por faixas salariais que, no paÃ­s, sÃ£o separadas em sete nÃ­veis. Isso significa, por exemplo, que um salÃ¡rio anual de 81,9 mil sofre deduÃ§Ãµes em sete faixas, conforme detalhado abaixo.<br><br>De â‚¬ 0 a â‚¬ 7,112: 14.5%<br>de â‚¬ 7,112 a 10,732: 23%<br>de â‚¬ 10,732 a 20,322: 28%<br>de â‚¬ 20,322 a 25,075: 35%<br>de â‚¬ 25,075 a 36,967: 37%<br>de â‚¬ 36,967 a 80,882: 45%<br>Acima de 80,882: 48%<br><br>As taxas aplicadas sobre os salÃ¡rios dos trabalhadores portugueses consideram apenas a parcela dedutÃ­vel da remuneraÃ§Ã£o; ou seja, antes de aplicar a porcentagem de deduÃ§Ã£o, Ã© descontado primeiro o valor referente Ã  Seguridade Social. SÃ³ entÃ£o Ã© aplicada a taxa sobre o salÃ¡rio. <br><br>Para ficar mais claro, Ã© possÃ­vel considerar um salÃ¡rio de â‚¬ 20 mil como exemplo. O valor de contribuiÃ§Ã£o social (11%) serÃ¡ de â‚¬ 2,2 mil. Logo, o salÃ¡rio serÃ¡ taxado apenas sobre o valor restante, que Ã© de â‚¬ 17,8 mil. JÃ¡ para quem nÃ£o Ã© residente do paÃ­s, o cÃ¡lculo Ã© bem mais fÃ¡cil. O governo portuguÃªs aplica a taxa fixa de 25% sobre o salÃ¡rio para esse grupo de pessoas."
+    }
+    if (salary >= 20322 && salary < 25075) {
+        const soc_sec = (salary / 100) * 11
+        var first_taxation = 7112 * (tax_one / 100);
+        var second_taxation = (10732 - 7112) * (tax_two / 100);
+        var third_taxation = (20322 - 10732) * (tax_three / 100);
+        var fourth_taxation = ((salary - soc_sec) - 20322) * (tax_fourth / 100);
+        var range_deduction = first_taxation + second_taxation + third_taxation + fourth_taxation + soc_sec;
+        const sum_deductions = range_deduction - soc_sec;
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + parseFloat(salary).toFixed(2) + " em Portugal, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Esse valor Ã© a soma da contribuiÃ§Ã£o para Seguridade Social (" + formatter.format(soc_sec) + "), que corresponde a 11% do salÃ¡rio bruto, e o imposto sobre o salÃ¡rio (" + formatter.format(sum_deductions) + "), que varia de acordo com o rendimento anual de cada pessoa.<br><br>Os salÃ¡rios portugueses sÃ£o taxados de forma progressiva. Isso significa que quanto maior o salÃ¡rio, maior serÃ¡ o desconto aplicado. As deduÃ§Ãµes sÃ£o realizadas por faixas salariais que, no paÃ­s, sÃ£o separadas em sete nÃ­veis. Isso significa, por exemplo, que um salÃ¡rio anual de 81,9 mil sofre deduÃ§Ãµes em sete faixas, conforme detalhado abaixo.<br><br>De â‚¬ 0 a â‚¬ 7,112: 14.5%<br>de â‚¬ 7,112 a 10,732: 23%<br>de â‚¬ 10,732 a 20,322: 28%<br>de â‚¬ 20,322 a 25,075: 35%<br>de â‚¬ 25,075 a 36,967: 37%<br>de â‚¬ 36,967 a 80,882: 45%<br>Acima de 80,882: 48%<br><br>As taxas aplicadas sobre os salÃ¡rios dos trabalhadores portugueses consideram apenas a parcela dedutÃ­vel da remuneraÃ§Ã£o; ou seja, antes de aplicar a porcentagem de deduÃ§Ã£o, Ã© descontado primeiro o valor referente Ã  Seguridade Social. SÃ³ entÃ£o Ã© aplicada a taxa sobre o salÃ¡rio. <br><br>Para ficar mais claro, Ã© possÃ­vel considerar um salÃ¡rio de â‚¬ 20 mil como exemplo. O valor de contribuiÃ§Ã£o social (11%) serÃ¡ de â‚¬ 2,2 mil. Logo, o salÃ¡rio serÃ¡ taxado apenas sobre o valor restante, que Ã© de â‚¬ 17,8 mil. JÃ¡ para quem nÃ£o Ã© residente do paÃ­s, o cÃ¡lculo Ã© bem mais fÃ¡cil. O governo portuguÃªs aplica a taxa fixa de 25% sobre o salÃ¡rio para esse grupo de pessoas."
+    }
+    if (salary >= 25075 && salary < 36967) {
+        const soc_sec = (salary / 100) * 11
+        var first_taxation = 7112 * (tax_one / 100);
+        var second_taxation = (10732 - 7112) * (tax_two / 100);
+        var third_taxation = (20322 - 10732) * (tax_three / 100);
+        var fourth_taxation = (25075 - 20322) * (tax_fourth / 100);
+        var fifth_taxation = ((salary - soc_sec) - 25075) * (tax_fifth / 100);
+        var range_deduction = first_taxation + second_taxation + third_taxation + fourth_taxation + fifth_taxation + soc_sec;
+        const sum_deductions = range_deduction - soc_sec;
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " em Portugal, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Esse valor Ã© a soma da contribuiÃ§Ã£o para Seguridade Social (" + formatter.format(soc_sec) + "), que corresponde a 11% do salÃ¡rio bruto, e o imposto sobre o salÃ¡rio (" + formatter.format(sum_deductions) + "), que varia de acordo com o rendimento anual de cada pessoa.<br><br>Os salÃ¡rios portugueses sÃ£o taxados de forma progressiva. Isso significa que quanto maior o salÃ¡rio, maior serÃ¡ o desconto aplicado. As deduÃ§Ãµes sÃ£o realizadas por faixas salariais que, no paÃ­s, sÃ£o separadas em sete nÃ­veis. Isso significa, por exemplo, que um salÃ¡rio anual de 81,9 mil sofre deduÃ§Ãµes em sete faixas, conforme detalhado abaixo.<br><br>De â‚¬ 0 a â‚¬ 7,112: 14.5%<br>de â‚¬ 7,112 a 10,732: 23%<br>de â‚¬ 10,732 a 20,322: 28%<br>de â‚¬ 20,322 a 25,075: 35%<br>de â‚¬ 25,075 a 36,967: 37%<br>de â‚¬ 36,967 a 80,882: 45%<br>Acima de 80,882: 48%<br><br>As taxas aplicadas sobre os salÃ¡rios dos trabalhadores portugueses consideram apenas a parcela dedutÃ­vel da remuneraÃ§Ã£o; ou seja, antes de aplicar a porcentagem de deduÃ§Ã£o, Ã© descontado primeiro o valor referente Ã  Seguridade Social. SÃ³ entÃ£o Ã© aplicada a taxa sobre o salÃ¡rio. <br><br>Para ficar mais claro, Ã© possÃ­vel considerar um salÃ¡rio de â‚¬ 20 mil como exemplo. O valor de contribuiÃ§Ã£o social (11%) serÃ¡ de â‚¬ 2,2 mil. Logo, o salÃ¡rio serÃ¡ taxado apenas sobre o valor restante, que Ã© de â‚¬ 17,8 mil. JÃ¡ para quem nÃ£o Ã© residente do paÃ­s, o cÃ¡lculo Ã© bem mais fÃ¡cil. O governo portuguÃªs aplica a taxa fixa de 25% sobre o salÃ¡rio para esse grupo de pessoas."
+    }
+    if (salary > 36967 && salary < 80882) {
+        const soc_sec = (salary / 100) * 11
+        var first_taxation = 7112 * (tax_one / 100);
+        var second_taxation = (10732 - 7112) * (tax_two / 100);
+        var third_taxation = (20322 - 10732) * (tax_three / 100);
+        var fourth_taxation = (25075 - 20322) * (tax_fourth / 100);
+        var fifth_taxation = (36967 - 25075) * (tax_fifth / 100);
+        var sixth_taxation = ((salary - soc_sec) - 36967) * (tax_sixth / 100);
+        var range_deduction = first_taxation + second_taxation + third_taxation + fourth_taxation + fifth_taxation + sixth_taxation + soc_sec;
+        const sum_deductions = range_deduction - soc_sec;
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " em Portugal, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Esse valor Ã© a soma da contribuiÃ§Ã£o para Seguridade Social (" + formatter.format(soc_sec) + "), que corresponde a 11% do salÃ¡rio bruto, e o imposto sobre o salÃ¡rio (" + formatter.format(sum_deductions) + "), que varia de acordo com o rendimento anual de cada pessoa.<br><br>Os salÃ¡rios portugueses sÃ£o taxados de forma progressiva. Isso significa que quanto maior o salÃ¡rio, maior serÃ¡ o desconto aplicado. As deduÃ§Ãµes sÃ£o realizadas por faixas salariais que, no paÃ­s, sÃ£o separadas em sete nÃ­veis. Isso significa, por exemplo, que um salÃ¡rio anual de 81,9 mil sofre deduÃ§Ãµes em sete faixas, conforme detalhado abaixo.<br><br>De â‚¬ 0 a â‚¬ 7,112: 14.5%<br>de â‚¬ 7,112 a 10,732: 23%<br>de â‚¬ 10,732 a 20,322: 28%<br>de â‚¬ 20,322 a 25,075: 35%<br>de â‚¬ 25,075 a 36,967: 37%<br>de â‚¬ 36,967 a 80,882: 45%<br>Acima de 80,882: 48%<br><br>As taxas aplicadas sobre os salÃ¡rios dos trabalhadores portugueses consideram apenas a parcela dedutÃ­vel da remuneraÃ§Ã£o; ou seja, antes de aplicar a porcentagem de deduÃ§Ã£o, Ã© descontado primeiro o valor referente Ã  Seguridade Social. SÃ³ entÃ£o Ã© aplicada a taxa sobre o salÃ¡rio. <br><br>Para ficar mais claro, Ã© possÃ­vel considerar um salÃ¡rio de â‚¬ 20 mil como exemplo. O valor de contribuiÃ§Ã£o social (11%) serÃ¡ de â‚¬ 2,2 mil. Logo, o salÃ¡rio serÃ¡ taxado apenas sobre o valor restante, que Ã© de â‚¬ 17,8 mil. JÃ¡ para quem nÃ£o Ã© residente do paÃ­s, o cÃ¡lculo Ã© bem mais fÃ¡cil. O governo portuguÃªs aplica a taxa fixa de 25% sobre o salÃ¡rio para esse grupo de pessoas."
+    }
+    if (salary >= 80882) {
+        const soc_sec = (salary / 100) * 11
+        var first_taxation = 7112 * (tax_one / 100);
+        var second_taxation = (10732 - 7112) * (tax_two / 100);
+        var third_taxation = (20322 - 10732) * (tax_three / 100);
+        var fourth_taxation = (25075 - 20322) * (tax_fourth / 100);
+        var fifth_taxation = (36967 - 25075) * (tax_fifth / 100);
+        var sixth_taxation = (80882 - 36967) * (tax_sixth / 100);
+        var seventh_taxation = ((salary - soc_sec) - 80882) * (tax_seventh / 100);
+        var range_deduction = first_taxation + second_taxation + third_taxation + fourth_taxation + fifth_taxation + sixth_taxation + seventh_taxation + soc_sec;
+        const sum_deductions = range_deduction - soc_sec;
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " em Portugal, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Esse valor Ã© a soma da contribuiÃ§Ã£o para Seguridade Social (" + formatter.format(soc_sec) + "), que corresponde a 11% do salÃ¡rio bruto, e o imposto sobre o salÃ¡rio (" + formatter.format(sum_deductions) + "), que varia de acordo com o rendimento anual de cada pessoa.<br><br>Os salÃ¡rios portugueses sÃ£o taxados de forma progressiva. Isso significa que quanto maior o salÃ¡rio, maior serÃ¡ o desconto aplicado. As deduÃ§Ãµes sÃ£o realizadas por faixas salariais que, no paÃ­s, sÃ£o separadas em sete nÃ­veis. Isso significa, por exemplo, que um salÃ¡rio anual de 81,9 mil sofre deduÃ§Ãµes em sete faixas, conforme detalhado abaixo.<br><br>De â‚¬ 0 a â‚¬ 7,112: 14.5%<br>de â‚¬ 7,112 a 10,732: 23%<br>de â‚¬ 10,732 a 20,322: 28%<br>de â‚¬ 20,322 a 25,075: 35%<br>de â‚¬ 25,075 a 36,967: 37%<br>de â‚¬ 36,967 a 80,882: 45%<br>Acima de 80,882: 48%<br><br>As taxas aplicadas sobre os salÃ¡rios dos trabalhadores portugueses consideram apenas a parcela dedutÃ­vel da remuneraÃ§Ã£o; ou seja, antes de aplicar a porcentagem de deduÃ§Ã£o, Ã© descontado primeiro o valor referente Ã  Seguridade Social. SÃ³ entÃ£o Ã© aplicada a taxa sobre o salÃ¡rio. <br><br>Para ficar mais claro, Ã© possÃ­vel considerar um salÃ¡rio de â‚¬ 20 mil como exemplo. O valor de contribuiÃ§Ã£o social (11%) serÃ¡ de â‚¬ 2,2 mil. Logo, o salÃ¡rio serÃ¡ taxado apenas sobre o valor restante, que Ã© de â‚¬ 17,8 mil. JÃ¡ para quem nÃ£o Ã© residente do paÃ­s, o cÃ¡lculo Ã© bem mais fÃ¡cil. O governo portuguÃªs aplica a taxa fixa de 25% sobre o salÃ¡rio para esse grupo de pessoas."
+    }
+    if (salary < 0) {
+        var invalid = alert("OlÃ¡! Sabemos que a grana tÃ¡ curta, mas por favor insira um nÃºmero maior que zero! - Agora Europa :)");
+        var salary = 0;
+        var range_deduction = 0;
+    }
+
+    var formatter = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'EUR',
+    });
+    var total_deduction = range_deduction;
+    var deducted_salary = salary - total_deduction;
+    var deducted_salary_dec = formatter.format(deducted_salary)
+    var deduction = salary - deducted_salary;
+    var deduction_dec = formatter.format(deduction)
+    const sal_text = "SalÃ¡rio com desconto"
+    const ded_text = "Total de taxas descontadas"
+    var text = text_int
+    document.getElementById("result").innerHTML = (deducted_salary_dec);
+    document.getElementById("deduction").innerHTML = (deduction_dec);
+    document.getElementById("text").innerHTML = text;
+    document.getElementById("sal_text").innerHTML = sal_text;
+    document.getElementById("ded_text").innerHTML = ded_text;
+}
+function Irlanda() {
+    var text = "Se gasta pouco na Irlanda";
+    salary = document.getElementById("salario").value;
+    var tax_one = 20
+    var tax_two = 40
+    if (salary <= 36800) {
+        if (salary <= 12012) {
+            var health_contribution = 0
+            var personal_exception = 3400
+            var prsi = 0
+            var first_taxation = ((salary - (personal_exception + health_contribution)) * (tax_one / 100));
+            var range_deduction = prsi + health_contribution;
+            var sal_exc = salary - (personal_exception - health_contribution - prsi)
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'EUR',
+            });
+            var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Irlanda, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Para esse valor, nÃ£o hÃ¡ desconto de Seguridade Social (PRSI), mas vocÃª contribui com " + formatter.format(health_contribution) + " para o Encargo Social Universal (USC). Sobre o valor que vocÃª selecionou, tambÃ©m foi aplicado um crÃ©dito ou isenÃ§Ã£o de " + formatter.format(first_taxation) + " ao seu salÃ¡rio. Isso significa que a taxaÃ§Ã£o de 20% sobre o valor dedutÃ­vel (" + formatter.format(sal_exc) + ") foi igual a â‚¬ 0. <br><br><strong>Entenda como funciona o cÃ¡lculo de deduÃ§Ã£o na Irlanda</strong><br>Contribuintes da Irlanda possuem apenas duas faixas para deduÃ§Ã£o salarial: 20% e 40%. Todas as pessoas que recebem atÃ© â‚¬ 36,800 tÃªm 20% do salÃ¡rio deduzido. JÃ¡ quem ganha mais do que esse valor, paga 40% para tudo o que supera o montante de â‚¬ 36,800. <br><br>A porcentagem descontada, no entanto, nÃ£o Ã© deduzida do valor bruto. Primeiro, sÃ£o elaborados os cÃ¡lculos de contribuiÃ§Ã£o, como a deduÃ§Ã£o do Universal Social Charge (USC) e do Pay Related social Insurance (PRSI). AlÃ©m disso, todos os trabalhadores possuem um crÃ©dito de isenÃ§Ã£o de â‚¬ 1,7 mil. <br><br>Isso significa que, antes de aplicar os descontos de 20% e 40% ao seu salÃ¡rio, todos esses valores sÃ£o deduzidos primeiro. O que restar, Ã© o montante que serÃ¡ taxado. Os tetos para deduÃ§Ã£o podem variar dependendo da estrutura familiar do contribuinte: se Ã© casado(a) ou nÃ£o, se apenas um ou ambos trabalham e se o contribuinte possui crianÃ§as dependentes.<br><br><strong>Universal Social Charge</strong><br>O USC, ou Encargo Social Universal, tambÃ©m conhecido como imposto para saÃºde, sÃ³ Ã© descontado para salÃ¡rios anuais acima de â‚¬ 13 mil. No entanto, se vocÃª recebe acima desse valor, tambÃ©m haverÃ¡ descontos nas faixas inferiores ao montante em cinco nÃ­veis diferentes:<br><br>AtÃ© â‚¬12,012: 0.5%<br>de â‚¬12,012.01 to â‚¬21,295: 2%<br>de â‚¬21,295.01 to â‚¬70,044: 4.5%<br>de â‚¬70,044.01 ou acima: 8%<br>EmpresÃ¡rio com renda superior a â‚¬100,000: 11%<br><br><strong>Pay Related social Insurance (PRSI)</strong><br>O PRSI Ã© o imposto de Seguridade Social da Irlanda. Apenas pessoas que recebem acima de â‚¬ 18,304 contribuiem com esse imposto.<br><br>Isso ocorre porque essa deduÃ§Ã£o sÃ³ Ã© aplicada a salÃ¡rios cujos valores semanais sÃ£o superiores a â‚¬ 352. Todos os trabalhadores que recebem acima desse montante contribuiem com 4% do salÃ¡rio para o PRSI. Vale ressaltar que esses 4% sÃ³ sÃ£o aplicados ao valor restante do salÃ¡rio apÃ³s a subtraÃ§Ã£o dos â‚¬ 18,304."
+        }
+        if (salary > 12012 && salary <= 21295) {
+            if (salary <= 13000) {
+                var health_contribution = 60.06 + (((salary - 12012) / 100) * 2)
+                var personal_exception = 3400
+                var prsi = 0
+                var first_taxation = ((salary - (personal_exception + health_contribution)) * (tax_one / 100));
+                var range_deduction = prsi + health_contribution;
+                var sal_exc = salary - (personal_exception - health_contribution - prsi)
+                var formatter = new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'EUR',
+                });
+                var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Irlanda, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Para esse valor, nÃ£o hÃ¡ desconto de Seguridade Social (PRSI), mas vocÃª contribui com " + formatter.format(health_contribution) + " para o Encargo Social Universal (USC). Sobre o valor que vocÃª selecionou, tambÃ©m foi aplicado um crÃ©dito ou isenÃ§Ã£o de " + formatter.format(first_taxation) + " ao seu salÃ¡rio. Isso significa que a taxaÃ§Ã£o de 20% sobre o valor dedutÃ­vel (" + formatter.format(sal_exc) + ") foi igual a â‚¬ 0.<br><br><strong>Entenda como funciona o cÃ¡lculo de deduÃ§Ã£o na Irlanda</strong><br>Contribuintes da Irlanda possuem apenas duas faixas para deduÃ§Ã£o salarial: 20% e 40%. Todas as pessoas que recebem atÃ© â‚¬ 36,800 tÃªm 20% do salÃ¡rio deduzido. JÃ¡ quem ganha mais do que esse valor, paga 40% para tudo o que supera o montante de â‚¬ 36,800. <br><br>A porcentagem descontada, no entanto, nÃ£o Ã© deduzida do valor bruto. Primeiro, sÃ£o elaborados os cÃ¡lculos de contribuiÃ§Ã£o, como a deduÃ§Ã£o do Universal Social Charge (USC) e do Pay Related social Insurance (PRSI). AlÃ©m disso, todos os trabalhadores possuem um crÃ©dito de isenÃ§Ã£o de â‚¬ 1,7 mil. <br><br>Isso significa que, antes de aplicar os descontos de 20% e 40% ao seu salÃ¡rio, todos esses valores sÃ£o deduzidos primeiro. O que restar, Ã© o montante que serÃ¡ taxado. Os tetos para deduÃ§Ã£o podem variar dependendo da estrutura familiar do contribuinte: se Ã© casado(a) ou nÃ£o, se apenas um ou ambos trabalham e se o contribuinte possui crianÃ§as dependentes.<br><br><strong>Universal Social Charge</strong><br>O USC, ou Encargo Social Universal, tambÃ©m conhecido como imposto para saÃºde, sÃ³ Ã© descontado para salÃ¡rios anuais acima de â‚¬ 13 mil. No entanto, se vocÃª recebe acima desse valor, tambÃ©m haverÃ¡ descontos nas faixas inferiores ao montante em cinco nÃ­veis diferentes:<br><br>AtÃ© â‚¬12,012: 0.5%<br>de â‚¬12,012.01 to â‚¬21,295: 2%<br>de â‚¬21,295.01 to â‚¬70,044: 4.5%<br>de â‚¬70,044.01 ou acima: 8%<br>EmpresÃ¡rio com renda superior a â‚¬100,000: 11%<br><br><strong>Pay Related social Insurance (PRSI)</strong><br>O PRSI Ã© o imposto de Seguridade Social da Irlanda. Apenas pessoas que recebem acima de â‚¬ 18,304 contribuiem com esse imposto.<br><br>Isso ocorre porque essa deduÃ§Ã£o sÃ³ Ã© aplicada a salÃ¡rios cujos valores semanais sÃ£o superiores a â‚¬ 352. Todos os trabalhadores que recebem acima desse montante contribuiem com 4% do salÃ¡rio para o PRSI. Vale ressaltar que esses 4% sÃ³ sÃ£o aplicados ao valor restante do salÃ¡rio apÃ³s a subtraÃ§Ã£o dos â‚¬ 18,304."
+            }
+            if (salary > 13000 && salary <= 18304) {
+                if (salary <= 17000) {
+                    var health_contribution = 60.06 + (((salary - 12012) / 100) * 2)
+                    var personal_exception = 3400
+                    var prsi = 0
+                    var first_taxation = ((salary - (personal_exception + health_contribution)) * (tax_one / 100));
+                    var range_deduction = prsi + health_contribution;
+                    var sal_exc = salary - (personal_exception - health_contribution - prsi)
+                    var formatter = new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'EUR',
+                    });
+                    var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Irlanda, vocÃª pagarÃ¡ o total de â‚¬ " + formatter.format(range_deduction) + " em taxas. Para esse valor, nÃ£o hÃ¡ desconto de Seguridade Social (PRSI), mas vocÃª contribui com " + formatter.format(health_contribution) + " para o Encargo Social Universal (USC). Sobre o valor que vocÃª selecionou, tambÃ©m foi aplicado um crÃ©dito ou isenÃ§Ã£o de " + formatter.format(first_taxation) + " ao seu salÃ¡rio. Isso significa que a taxaÃ§Ã£o de 20% sobre o valor dedutÃ­vel (" + formatter.format(sal_exc) + ") foi igual a â‚¬ 0.<br><br><strong>Entenda como funciona o cÃ¡lculo de deduÃ§Ã£o na Irlanda</strong><br>Contribuintes da Irlanda possuem apenas duas faixas para deduÃ§Ã£o salarial: 20% e 40%. Todas as pessoas que recebem atÃ© â‚¬ 36,800 tÃªm 20% do salÃ¡rio deduzido. JÃ¡ quem ganha mais do que esse valor, paga 40% para tudo o que supera o montante de â‚¬ 36,800. <br><br>A porcentagem descontada, no entanto, nÃ£o Ã© deduzida do valor bruto. Primeiro, sÃ£o elaborados os cÃ¡lculos de contribuiÃ§Ã£o, como a deduÃ§Ã£o do Universal Social Charge (USC) e do Pay Related social Insurance (PRSI). AlÃ©m disso, todos os trabalhadores possuem um crÃ©dito de isenÃ§Ã£o de â‚¬ 1,7 mil. <br><br>Isso significa que, antes de aplicar os descontos de 20% e 40% ao seu salÃ¡rio, todos esses valores sÃ£o deduzidos primeiro. O que restar, Ã© o montante que serÃ¡ taxado. Os tetos para deduÃ§Ã£o podem variar dependendo da estrutura familiar do contribuinte: se Ã© casado(a) ou nÃ£o, se apenas um ou ambos trabalham e se o contribuinte possui crianÃ§as dependentes.<br><br><strong>Universal Social Charge</strong><br>O USC, ou Encargo Social Universal, tambÃ©m conhecido como imposto para saÃºde, sÃ³ Ã© descontado para salÃ¡rios anuais acima de â‚¬ 13 mil. No entanto, se vocÃª recebe acima desse valor, tambÃ©m haverÃ¡ descontos nas faixas inferiores ao montante em cinco nÃ­veis diferentes:<br><br>AtÃ© â‚¬12,012: 0.5%<br>de â‚¬12,012.01 to â‚¬21,295: 2%<br>de â‚¬21,295.01 to â‚¬70,044: 4.5%<br>de â‚¬70,044.01 ou acima: 8%<br>EmpresÃ¡rio com renda superior a â‚¬100,000: 11%<br><br><strong>Pay Related social Insurance (PRSI)</strong><br>O PRSI Ã© o imposto de Seguridade Social da Irlanda. Apenas pessoas que recebem acima de â‚¬ 18,304 contribuiem com esse imposto.<br><br>Isso ocorre porque essa deduÃ§Ã£o sÃ³ Ã© aplicada a salÃ¡rios cujos valores semanais sÃ£o superiores a â‚¬ 352. Todos os trabalhadores que recebem acima desse montante contribuiem com 4% do salÃ¡rio para o PRSI. Vale ressaltar que esses 4% sÃ³ sÃ£o aplicados ao valor restante do salÃ¡rio apÃ³s a subtraÃ§Ã£o dos â‚¬ 18,304."
+                } else {
+                    var health_contribution = 60.06 + ((salary - 12012) / 100) * 2
+                    var personal_exception = 3400
+                    var prsi = 0
+                    var first_taxation = (salary * (tax_one / 100)) - 3400;
+                    var range_deduction = first_taxation + health_contribution + prsi;
+                    var sal_exc = salary - (personal_exception - health_contribution - prsi)
+                    var formatter = new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'EUR',
+                    });
+                    var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Irlanda, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Para esse valor, nÃ£o hÃ¡ desconto de Seguridade Social (PRSI), mas vocÃª contribui com " + formatter.format(health_contribution) + " para o Encargo Social Universal (USC) e paga " + formatter.format(first_taxation) + " em imposto sobre o salÃ¡rio, que corresponde a 20% da parcela dedutÃ­vel do seu rendimento anual. Sobre esse valor, tambÃ©m Ã© aplicado um crÃ©dito ou isenÃ§Ã£o de â‚¬ 3,4 mil ao seu salÃ¡rio.<br><br><strong>Entenda como funciona o cÃ¡lculo de deduÃ§Ã£o na Irlanda</strong><br>Contribuintes da Irlanda possuem apenas duas faixas para deduÃ§Ã£o salarial: 20% e 40%. Todas as pessoas que recebem atÃ© â‚¬ 36,800 tÃªm 20% do salÃ¡rio deduzido. JÃ¡ quem ganha mais do que esse valor, paga 40% para tudo o que supera o montante de â‚¬ 36,800. <br><br>A porcentagem descontada, no entanto, nÃ£o Ã© deduzida do valor bruto. Primeiro, sÃ£o elaborados os cÃ¡lculos de contribuiÃ§Ã£o, como a deduÃ§Ã£o do Universal Social Charge (USC) e do Pay Related social Insurance (PRSI). AlÃ©m disso, todos os trabalhadores possuem um crÃ©dito de isenÃ§Ã£o de â‚¬ 1,7 mil. <br><br>Isso significa que, antes de aplicar os descontos de 20% e 40% ao seu salÃ¡rio, todos esses valores sÃ£o deduzidos primeiro. O que restar, Ã© o montante que serÃ¡ taxado. Os tetos para deduÃ§Ã£o podem variar dependendo da estrutura familiar do contribuinte: se Ã© casado(a) ou nÃ£o, se apenas um ou ambos trabalham e se o contribuinte possui crianÃ§as dependentes.<br><br><strong>Universal Social Charge</strong><br>O USC, ou Encargo Social Universal, tambÃ©m conhecido como imposto para saÃºde, sÃ³ Ã© descontado para salÃ¡rios anuais acima de â‚¬ 13 mil. No entanto, se vocÃª recebe acima desse valor, tambÃ©m haverÃ¡ descontos nas faixas inferiores ao montante em cinco nÃ­veis diferentes:<br><br>AtÃ© â‚¬12,012: 0.5%<br>de â‚¬12,012.01 to â‚¬21,295: 2%<br>de â‚¬21,295.01 to â‚¬70,044: 4.5%<br>de â‚¬70,044.01 ou acima: 8%<br>EmpresÃ¡rio com renda superior a â‚¬100,000: 11%<br><br><strong>Pay Related social Insurance (PRSI)</strong><br>O PRSI Ã© o imposto de Seguridade Social da Irlanda. Apenas pessoas que recebem acima de â‚¬ 18,304 contribuiem com esse imposto.<br><br>Isso ocorre porque essa deduÃ§Ã£o sÃ³ Ã© aplicada a salÃ¡rios cujos valores semanais sÃ£o superiores a â‚¬ 352. Todos os trabalhadores que recebem acima desse montante contribuiem com 4% do salÃ¡rio para o PRSI. Vale ressaltar que esses 4% sÃ³ sÃ£o aplicados ao valor restante do salÃ¡rio apÃ³s a subtraÃ§Ã£o dos â‚¬ 18,304."
+                }
+            }
+        }
+        if (salary > 18304 && salary <= 21295) {
+            var health_contribution = 60.06 + ((salary - 12012) / 100) * 2
+            var prsi = ((((salary / 52) / 100) * 4 - (12 - (((salary / 52) - 352.01) / 6))) * 52)
+            var personal_exception = 3400
+            var first_taxation = (salary * (tax_one / 100)) - personal_exception;
+            var range_deduction = first_taxation + health_contribution + prsi;
+            var sal_exc = salary - (personal_exception - health_contribution - prsi)
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'EUR',
+            });
+            var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Irlanda, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Para esse valor, o desconto de Seguridade Social (PRSI) Ã© de " + formatter.format(prsi) + ". VocÃª tambÃ©m contribui com " + formatter.format(health_contribution) + " para o Encargo Social Universal (USC) e paga " + formatter.format(first_taxation) + " em imposto sobre o salÃ¡rio, que corresponde a 20% da parcela dedutÃ­vel do seu rendimento anual. Sobre esse valor, tambÃ©m Ã© aplicado um crÃ©dito ou isenÃ§Ã£o de â‚¬ 3,4 mil ao seu salÃ¡rio.<br><br><strong>Entenda como funciona o cÃ¡lculo de deduÃ§Ã£o na Irlanda</strong><br>Contribuintes da Irlanda possuem apenas duas faixas para deduÃ§Ã£o salarial: 20% e 40%. Todas as pessoas que recebem atÃ© â‚¬ 36,800 tÃªm 20% do salÃ¡rio deduzido. JÃ¡ quem ganha mais do que esse valor, paga 40% para tudo o que supera o montante de â‚¬ 36,800. <br><br>A porcentagem descontada, no entanto, nÃ£o Ã© deduzida do valor bruto. Primeiro, sÃ£o elaborados os cÃ¡lculos de contribuiÃ§Ã£o, como a deduÃ§Ã£o do Universal Social Charge (USC) e do Pay Related social Insurance (PRSI). AlÃ©m disso, todos os trabalhadores possuem um crÃ©dito de isenÃ§Ã£o de â‚¬ 1,7 mil. <br><br>Isso significa que, antes de aplicar os descontos de 20% e 40% ao seu salÃ¡rio, todos esses valores sÃ£o deduzidos primeiro. O que restar, Ã© o montante que serÃ¡ taxado. Os tetos para deduÃ§Ã£o podem variar dependendo da estrutura familiar do contribuinte: se Ã© casado(a) ou nÃ£o, se apenas um ou ambos trabalham e se o contribuinte possui crianÃ§as dependentes.<br><br><strong>Universal Social Charge</strong><br>O USC, ou Encargo Social Universal, tambÃ©m conhecido como imposto para saÃºde, sÃ³ Ã© descontado para salÃ¡rios anuais acima de â‚¬ 13 mil. No entanto, se vocÃª recebe acima desse valor, tambÃ©m haverÃ¡ descontos nas faixas inferiores ao montante em cinco nÃ­veis diferentes:<br><br>AtÃ© â‚¬12,012: 0.5%<br>de â‚¬12,012.01 to â‚¬21,295: 2%<br>de â‚¬21,295.01 to â‚¬70,044: 4.5%<br>de â‚¬70,044.01 ou acima: 8%<br>EmpresÃ¡rio com renda superior a â‚¬100,000: 11%<br><br><strong>Pay Related social Insurance (PRSI)</strong><br>O PRSI Ã© o imposto de Seguridade Social da Irlanda. Apenas pessoas que recebem acima de â‚¬ 18,304 contribuiem com esse imposto.<br><br>Isso ocorre porque essa deduÃ§Ã£o sÃ³ Ã© aplicada a salÃ¡rios cujos valores semanais sÃ£o superiores a â‚¬ 352. Todos os trabalhadores que recebem acima desse montante contribuiem com 4% do salÃ¡rio para o PRSI. Vale ressaltar que esses 4% sÃ³ sÃ£o aplicados ao valor restante do salÃ¡rio apÃ³s a subtraÃ§Ã£o dos â‚¬ 18,304."
+        }
+        if (salary > 21295 && salary <= 22048) {
+            var health_contribution = 60.06 + 185.66 + (((salary - 21295) / 100) * 4.5)
+            var prsi = ((((salary / 52) / 100) * 4 - (12 - (((salary / 52) - 352.01) / 6))) * 52)
+            var personal_exception = 3400
+            var first_taxation = (salary * (tax_one / 100)) - personal_exception;
+            var range_deduction = first_taxation + health_contribution + prsi;
+            var sal_exc = salary - (personal_exception - health_contribution - prsi)
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'EUR',
+            });
+            var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Irlanda, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Para esse valor, o desconto de Seguridade Social (PRSI) Ã© de " + formatter.format(prsi) + ". VocÃª tambÃ©m contribui com " + formatter.format(health_contribution) + " para o Encargo Social Universal (USC) e paga " + formatter.format(first_taxation) + " em imposto sobre o salÃ¡rio, que corresponde a 20% da parcela dedutÃ­vel do seu rendimento anual. Sobre esse valor, tambÃ©m Ã© aplicado um crÃ©dito ou isenÃ§Ã£o de â‚¬ 3,4 mil ao seu salÃ¡rio.<br><br><strong>Entenda como funciona o cÃ¡lculo de deduÃ§Ã£o na Irlanda</strong><br>Contribuintes da Irlanda possuem apenas duas faixas para deduÃ§Ã£o salarial: 20% e 40%. Todas as pessoas que recebem atÃ© â‚¬ 36,800 tÃªm 20% do salÃ¡rio deduzido. JÃ¡ quem ganha mais do que esse valor, paga 40% para tudo o que supera o montante de â‚¬ 36,800. <br><br>A porcentagem descontada, no entanto, nÃ£o Ã© deduzida do valor bruto. Primeiro, sÃ£o elaborados os cÃ¡lculos de contribuiÃ§Ã£o, como a deduÃ§Ã£o do Universal Social Charge (USC) e do Pay Related social Insurance (PRSI). AlÃ©m disso, todos os trabalhadores possuem um crÃ©dito de isenÃ§Ã£o de â‚¬ 1,7 mil. <br><br>Isso significa que, antes de aplicar os descontos de 20% e 40% ao seu salÃ¡rio, todos esses valores sÃ£o deduzidos primeiro. O que restar, Ã© o montante que serÃ¡ taxado. Os tetos para deduÃ§Ã£o podem variar dependendo da estrutura familiar do contribuinte: se Ã© casado(a) ou nÃ£o, se apenas um ou ambos trabalham e se o contribuinte possui crianÃ§as dependentes.<br><br><strong>Universal Social Charge</strong><br>O USC, ou Encargo Social Universal, tambÃ©m conhecido como imposto para saÃºde, sÃ³ Ã© descontado para salÃ¡rios anuais acima de â‚¬ 13 mil. No entanto, se vocÃª recebe acima desse valor, tambÃ©m haverÃ¡ descontos nas faixas inferiores ao montante em cinco nÃ­veis diferentes:<br><br>AtÃ© â‚¬12,012: 0.5%<br>de â‚¬12,012.01 to â‚¬21,295: 2%<br>de â‚¬21,295.01 to â‚¬70,044: 4.5%<br>de â‚¬70,044.01 ou acima: 8%<br>EmpresÃ¡rio com renda superior a â‚¬100,000: 11%<br><br><strong>Pay Related social Insurance (PRSI)</strong><br>O PRSI Ã© o imposto de Seguridade Social da Irlanda. Apenas pessoas que recebem acima de â‚¬ 18,304 contribuiem com esse imposto.<br><br>Isso ocorre porque essa deduÃ§Ã£o sÃ³ Ã© aplicada a salÃ¡rios cujos valores semanais sÃ£o superiores a â‚¬ 352. Todos os trabalhadores que recebem acima desse montante contribuiem com 4% do salÃ¡rio para o PRSI. Vale ressaltar que esses 4% sÃ³ sÃ£o aplicados ao valor restante do salÃ¡rio apÃ³s a subtraÃ§Ã£o dos â‚¬ 18,304."
+        }
+        if (salary > 22048) {
+            var health_contribution = 60.06 + 185.66 + (((salary - 21295)) / 100) * 4.5
+            var prsi = (salary / 100) * 4
+            var personal_exception = 3400
+            var first_taxation = (salary * (tax_one / 100)) - personal_exception;
+            var range_deduction = first_taxation + health_contribution + prsi;
+            var sal_exc = salary - (personal_exception - health_contribution - prsi)
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'EUR',
+            });
+            var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Irlanda, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Para esse valor, o desconto de Seguridade Social (PRSI) Ã© de " + formatter.format(prsi) + ". VocÃª tambÃ©m contribui com " + formatter.format(health_contribution) + " para o Encargo Social Universal (USC) e paga " + formatter.format(first_taxation) + " em imposto sobre o salÃ¡rio, que corresponde a 20% da parcela dedutÃ­vel do seu rendimento anual. Sobre esse valor, tambÃ©m Ã© aplicado um crÃ©dito ou isenÃ§Ã£o de â‚¬ 3,4 mil ao seu salÃ¡rio.<br><br><strong>Entenda como funciona o cÃ¡lculo de deduÃ§Ã£o na Irlanda</strong><br>Contribuintes da Irlanda possuem apenas duas faixas para deduÃ§Ã£o salarial: 20% e 40%. Todas as pessoas que recebem atÃ© â‚¬ 36,800 tÃªm 20% do salÃ¡rio deduzido. JÃ¡ quem ganha mais do que esse valor, paga 40% para tudo o que supera o montante de â‚¬ 36,800. <br><br>A porcentagem descontada, no entanto, nÃ£o Ã© deduzida do valor bruto. Primeiro, sÃ£o elaborados os cÃ¡lculos de contribuiÃ§Ã£o, como a deduÃ§Ã£o do Universal Social Charge (USC) e do Pay Related social Insurance (PRSI). AlÃ©m disso, todos os trabalhadores possuem um crÃ©dito de isenÃ§Ã£o de â‚¬ 1,7 mil. <br><br>Isso significa que, antes de aplicar os descontos de 20% e 40% ao seu salÃ¡rio, todos esses valores sÃ£o deduzidos primeiro. O que restar, Ã© o montante que serÃ¡ taxado. Os tetos para deduÃ§Ã£o podem variar dependendo da estrutura familiar do contribuinte: se Ã© casado(a) ou nÃ£o, se apenas um ou ambos trabalham e se o contribuinte possui crianÃ§as dependentes.<br><br><strong>Universal Social Charge</strong><br>O USC, ou Encargo Social Universal, tambÃ©m conhecido como imposto para saÃºde, sÃ³ Ã© descontado para salÃ¡rios anuais acima de â‚¬ 13 mil. No entanto, se vocÃª recebe acima desse valor, tambÃ©m haverÃ¡ descontos nas faixas inferiores ao montante em cinco nÃ­veis diferentes:<br><br>AtÃ© â‚¬12,012: 0.5%<br>de â‚¬12,012.01 to â‚¬21,295: 2%<br>de â‚¬21,295.01 to â‚¬70,044: 4.5%<br>de â‚¬70,044.01 ou acima: 8%<br>EmpresÃ¡rio com renda superior a â‚¬100,000: 11%<br><br><strong>Pay Related social Insurance (PRSI)</strong><br>O PRSI Ã© o imposto de Seguridade Social da Irlanda. Apenas pessoas que recebem acima de â‚¬ 18,304 contribuiem com esse imposto.<br><br>Isso ocorre porque essa deduÃ§Ã£o sÃ³ Ã© aplicada a salÃ¡rios cujos valores semanais sÃ£o superiores a â‚¬ 352. Todos os trabalhadores que recebem acima desse montante contribuiem com 4% do salÃ¡rio para o PRSI. Vale ressaltar que esses 4% sÃ³ sÃ£o aplicados ao valor restante do salÃ¡rio apÃ³s a subtraÃ§Ã£o dos â‚¬ 18,304."
+        }
+    }
+    if (salary > 36800) {
+        if (salary < 70044) {
+            var health_contribution = 60.06 + 185.66 + (((salary - 21295)) / 100) * 4.5
+            var prsi = (salary / 100) * 4
+            var personal_exception = 3400
+            var first_taxation = (36800 * (tax_one / 100));
+            var second_taxation = (salary - 36800) * (tax_two / 100) - personal_exception;
+            var sum_taxes = first_taxation + second_taxation
+            var range_deduction = first_taxation + second_taxation + health_contribution + prsi;
+            var sal_exc = salary - (personal_exception - health_contribution - prsi)
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'EUR',
+            });
+            var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Irlanda, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Para esse valor, o desconto de Seguridade Social (PRSI) Ã© de " + formatter.format(prsi) + ". VocÃª tambÃ©m contribui com " + formatter.format(health_contribution) + " para o Encargo Social Universal (USC) e paga " + formatter.format(sum_taxes) + " em imposto sobre o salÃ¡rio, que corresponde a 40% da parcela dedutÃ­vel do seu rendimento anual. Sobre esse valor, tambÃ©m Ã© aplicado um crÃ©dito ou isenÃ§Ã£o de â‚¬ 3,4 mil ao seu salÃ¡rio.<br><br><strong>Entenda como funciona o cÃ¡lculo de deduÃ§Ã£o na Irlanda</strong><br>Contribuintes da Irlanda possuem apenas duas faixas para deduÃ§Ã£o salarial: 20% e 40%. Todas as pessoas que recebem atÃ© â‚¬ 36,800 tÃªm 20% do salÃ¡rio deduzido. JÃ¡ quem ganha mais do que esse valor, paga 40% para tudo o que supera o montante de â‚¬ 36,800. <br><br>A porcentagem descontada, no entanto, nÃ£o Ã© deduzida do valor bruto. Primeiro, sÃ£o elaborados os cÃ¡lculos de contribuiÃ§Ã£o, como a deduÃ§Ã£o do Universal Social Charge (USC) e do Pay Related social Insurance (PRSI). AlÃ©m disso, todos os trabalhadores possuem um crÃ©dito de isenÃ§Ã£o de â‚¬ 1,7 mil. <br><br>Isso significa que, antes de aplicar os descontos de 20% e 40% ao seu salÃ¡rio, todos esses valores sÃ£o deduzidos primeiro. O que restar, Ã© o montante que serÃ¡ taxado. Os tetos para deduÃ§Ã£o podem variar dependendo da estrutura familiar do contribuinte: se Ã© casado(a) ou nÃ£o, se apenas um ou ambos trabalham e se o contribuinte possui crianÃ§as dependentes.<br><br><strong>Universal Social Charge</strong><br>O USC, ou Encargo Social Universal, tambÃ©m conhecido como imposto para saÃºde, sÃ³ Ã© descontado para salÃ¡rios anuais acima de â‚¬ 13 mil. No entanto, se vocÃª recebe acima desse valor, tambÃ©m haverÃ¡ descontos nas faixas inferiores ao montante em cinco nÃ­veis diferentes:<br><br>AtÃ© â‚¬12,012: 0.5%<br>de â‚¬12,012.01 to â‚¬21,295: 2%<br>de â‚¬21,295.01 to â‚¬70,044: 4.5%<br>de â‚¬70,044.01 ou acima: 8%<br>EmpresÃ¡rio com renda superior a â‚¬100,000: 11%<br><br><strong>Pay Related social Insurance (PRSI)</strong><br>O PRSI Ã© o imposto de Seguridade Social da Irlanda. Apenas pessoas que recebem acima de â‚¬ 18,304 contribuiem com esse imposto.<br><br>Isso ocorre porque essa deduÃ§Ã£o sÃ³ Ã© aplicada a salÃ¡rios cujos valores semanais sÃ£o superiores a â‚¬ 352. Todos os trabalhadores que recebem acima desse montante contribuiem com 4% do salÃ¡rio para o PRSI. Vale ressaltar que esses 4% sÃ³ sÃ£o aplicados ao valor restante do salÃ¡rio apÃ³s a subtraÃ§Ã£o dos â‚¬ 18,304."
+        } else {
+            var health_contribution = 60.06 + 185.66 + 2193 + (((salary - 70044)) / 100) * 8
+            var prsi = (salary / 100) * 4
+            var personal_exception = 3400
+            var first_taxation = (36800 * (tax_one / 100));
+            var second_taxation = (salary - 36800) * (tax_two / 100) - personal_exception;
+            var sum_taxes = first_taxation + second_taxation
+            var range_deduction = first_taxation + second_taxation + health_contribution + prsi;
+            var sal_exc = salary - (personal_exception - health_contribution - prsi)
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'EUR',
+            });
+            var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Irlanda, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Para esse valor, o desconto de Seguridade Social (PRSI) Ã© de " + formatter.format(prsi) + ". VocÃª tambÃ©m contribui com " + formatter.format(health_contribution) + " para o Encargo Social Universal (USC) e paga " + formatter.format(sum_taxes) + " em imposto sobre o salÃ¡rio, que corresponde a 40% da parcela dedutÃ­vel do seu rendimento anual. Sobre esse valor, tambÃ©m Ã© aplicado um crÃ©dito ou isenÃ§Ã£o de â‚¬ 3,4 mil ao seu salÃ¡rio.<br><br><strong>Entenda como funciona o cÃ¡lculo de deduÃ§Ã£o na Irlanda</strong><br>Contribuintes da Irlanda possuem apenas duas faixas para deduÃ§Ã£o salarial: 20% e 40%. Todas as pessoas que recebem atÃ© â‚¬ 36,800 tÃªm 20% do salÃ¡rio deduzido. JÃ¡ quem ganha mais do que esse valor, paga 40% para tudo o que supera o montante de â‚¬ 36,800. <br><br>A porcentagem descontada, no entanto, nÃ£o Ã© deduzida do valor bruto. Primeiro, sÃ£o elaborados os cÃ¡lculos de contribuiÃ§Ã£o, como a deduÃ§Ã£o do Universal Social Charge (USC) e do Pay Related social Insurance (PRSI). AlÃ©m disso, todos os trabalhadores possuem um crÃ©dito de isenÃ§Ã£o de â‚¬ 1,7 mil. <br><br>Isso significa que, antes de aplicar os descontos de 20% e 40% ao seu salÃ¡rio, todos esses valores sÃ£o deduzidos primeiro. O que restar, Ã© o montante que serÃ¡ taxado. Os tetos para deduÃ§Ã£o podem variar dependendo da estrutura familiar do contribuinte: se Ã© casado(a) ou nÃ£o, se apenas um ou ambos trabalham e se o contribuinte possui crianÃ§as dependentes.<br><br><strong>Universal Social Charge</strong><br>O USC, ou Encargo Social Universal, tambÃ©m conhecido como imposto para saÃºde, sÃ³ Ã© descontado para salÃ¡rios anuais acima de â‚¬ 13 mil. No entanto, se vocÃª recebe acima desse valor, tambÃ©m haverÃ¡ descontos nas faixas inferiores ao montante em cinco nÃ­veis diferentes:<br><br>AtÃ© â‚¬12,012: 0.5%<br>de â‚¬12,012.01 to â‚¬21,295: 2%<br>de â‚¬21,295.01 to â‚¬70,044: 4.5%<br>de â‚¬70,044.01 ou acima: 8%<br>EmpresÃ¡rio com renda superior a â‚¬100,000: 11%<br><br><strong>Pay Related social Insurance (PRSI)</strong><br>O PRSI Ã© o imposto de Seguridade Social da Irlanda. Apenas pessoas que recebem acima de â‚¬ 18,304 contribuiem com esse imposto.<br><br>Isso ocorre porque essa deduÃ§Ã£o sÃ³ Ã© aplicada a salÃ¡rios cujos valores semanais sÃ£o superiores a â‚¬ 352. Todos os trabalhadores que recebem acima desse montante contribuiem com 4% do salÃ¡rio para o PRSI. Vale ressaltar que esses 4% sÃ³ sÃ£o aplicados ao valor restante do salÃ¡rio apÃ³s a subtraÃ§Ã£o dos â‚¬ 18,304."
+        }
+    }
+    if (salary < 0) {
+        var invalid = alert("OlÃ¡! Sabemos que a grana tÃ¡ curta, mas por favor insira um nÃºmero maior que zero! - Agora Europa :)");
+        var salary = 0;
+        var range_deduction = 0;
+        text_int = "Hi there"
+    }
+    var formatter = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'EUR',
+    });
+    var total_deduction = range_deduction;
+    var deducted_salary = salary - total_deduction;
+    var deducted_salary_dec = formatter.format(deducted_salary)
+    var deduction = salary - deducted_salary;
+    var deduction_dec = formatter.format(deduction)
+    const sal_text = "SalÃ¡rio com desconto"
+    const ded_text = "Total de taxas descontadas"
+    var text = text_int
+    document.getElementById("result").innerHTML = (deducted_salary_dec);
+    document.getElementById("deduction").innerHTML = (deduction_dec);
+    document.getElementById("text").innerHTML = text;
+    document.getElementById("sal_text").innerHTML = sal_text;
+    document.getElementById("ded_text").innerHTML = ded_text;
+}
+function ReinoUnido() {
+    var text = "No Reino Unido tudo custa um reinado";
+    salary = document.getElementById("salario").value;
+    var tax_one = 0
+    var tax_two = 20
+    var tax_three = 40
+    var tax_fourth = 45
+    if (salary <= 12570) {
+        if (salary < 9880) {
+            var first_taxation = salary * (tax_one / 100);
+            var national_insurance = 0
+            var range_deduction = first_taxation + national_insurance;
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'GBP',
+            });
+            var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " no Reino Unido, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Com esse valor, vocÃª nÃ£o precisa contribuir com a Seguridade Social. O seu salÃ¡rio tambÃ©m nÃ£o sofre nenhum outro tipo de desconto.<br><br><strong>Entenda como funciona a deduÃ§Ã£o salarial no Reino Unido</strong><br>Os salÃ¡rios anuais dos trabalhadores do Reino Unido sÃ£o descontados em quatro nÃ­veis:<br><br>AtÃ© Â£ 12570.00: 0%<br>de Â£ 12571.00 a Â£ 50270.00: 20%<br>de Â£ 50571.00 a Â£ 150000.00: 40%<br>acima de Â£ 15000.00: 45%.<br><br>AlÃ©m da deduÃ§Ã£o sobre o salÃ¡rio lÃ­quido, os trabalhadores britÃ¢nicos tambÃ©m precisam contribuir com a Seguridade Nacional. A taxa varia de acordo com o rendimento semanal de cada pessoa. Contribuintes que recebem menos de Â£ 9880.00 por ano nÃ£o precisam arcar com esse desconto:<br><br>De Â£ 190 a Â£ 967 por semana:: 13.25%<br>acima de Â£ 967: 3.25%.<br><br>Cabe lembrar que os descontos, em ambos os casos, sÃ£o efetuados de forma escalonada. TambÃ©m hÃ¡ algumas variaÃ§Ãµes dependendo do status do contribuinte como, por exemplo, se Ã© casado ou nÃ£o."
+        } else {
+            var first_taxation = salary * (tax_one / 100);
+            var national_insurance = ((salary - 9880) / 100) * 12
+            var range_deduction = first_taxation + national_insurance;
+            var sal_deducted = range_deduction - national_insurance;
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'GBP',
+            });
+            var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " no Reino Unido, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Esse valor tambÃ©m considera a sua contribuiÃ§Ã£o para a Seguridade Nacional (" + formatter.format(national_insurance) + ").<br><br><strong>Entenda como funciona a deduÃ§Ã£o salarial no Reino Unido</strong><br>Os salÃ¡rios anuais dos trabalhadores do Reino Unido sÃ£o descontados em quatro nÃ­veis:<br><br>AtÃ© Â£ 12570.00: 0%<br>de Â£ 12571.00 a Â£ 50270.00: 20%<br>de Â£ 50571.00 a Â£ 150000.00: 40%<br>acuma de Â£ 15000.00: 45%.<br><br>AlÃ©m da deduÃ§Ã£o sobre o salÃ¡rio lÃ­quido, os trabalhadores britÃ¢nicos tambÃ©m precisam contribuir com a Seguridade Nacional. A taxa varia de acordo com o rendimento semanal de cada pessoa. Contribuintes que recebem menos de Â£ 9880.00 por ano nÃ£o precisam arcar com esse desconto:<br><br>De Â£ 190 a Â£ 967 por semana:: 13.25%<br>acima de Â£ 967: 3.25%.<br><br>Cabe lembrar que os descontos, em ambos os casos, sÃ£o efetuados de forma escalonada. TambÃ©m hÃ¡ algumas variaÃ§Ãµes dependendo do status do contribuinte como, por exemplo, se Ã© casado ou nÃ£o."
+        }
+    }
+    if (salary > 12570 && salary <= 50270) {
+        var first_taxation = 12570 * (tax_one / 100);
+        var second_taxation = (salary - 12570) * (tax_two / 100);
+        var national_insurance = ((salary - 12570) / 100) * 12
+        var range_deduction = first_taxation + second_taxation + national_insurance;
+        var sal_deducted = range_deduction - national_insurance;
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'GBP',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " no Reino Unido, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Esse valor Ã© resultado de duas deduÃ§Ãµes: a da Seguridade Nacional (" + formatter.format(national_insurance) + ") e a que incide sobre a parcela dedutÃ­vel do seu salÃ¡rio (" + formatter.format(sal_deducted) + ").<br><br><strong>Entenda como funciona a deduÃ§Ã£o salarial no Reino Unido</strong><br>Os salÃ¡rios anuais dos trabalhadores do Reino Unido sÃ£o descontados em quatro nÃ­veis:<br><br>AtÃ© Â£ 12570.00: 0%<br>de Â£ 12571.00 a Â£ 50270.00: 20%<br>de Â£ 50571.00 a Â£ 150000.00: 40%<br>acima de Â£ 15000.00: 45%.<br><br>AlÃ©m da deduÃ§Ã£o sobre o salÃ¡rio lÃ­quido, os trabalhadores britÃ¢nicos tambÃ©m precisam contribuir com a Seguridade Nacional. A taxa varia de acordo com o rendimento semanal de cada pessoa. Contribuintes que recebem menos de Â£ 9880.00 por ano nÃ£o precisam arcar com esse desconto:<br><br>De Â£ 190 a Â£ 967 por semana:: 13.25%<br>acima de Â£ 967: 3.25%.<br><br>Cabe lembrar que os descontos, em ambos os casos, sÃ£o efetuados de forma escalonada. TambÃ©m hÃ¡ algumas variaÃ§Ãµes dependendo do status do contribuinte como, por exemplo, se Ã© casado ou nÃ£o."
+    }
+    if (salary >= 50271 && salary < 150000) {
+        var first_taxation = 12570 * (tax_one / 100);
+        var second_taxation = (50271 - 12570) * (tax_two / 100);
+        var third_taxation = (salary - 50271) * (tax_three / 100);
+        var national_insurance = 4524.12 + (((salary - 50271) / 100) * 2)
+        var range_deduction = first_taxation + second_taxation + third_taxation + national_insurance;
+        var sal_deducted = range_deduction - national_insurance;
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'GBP',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " no Reino Unido, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Esse valor Ã© resultado de duas deduÃ§Ãµes: a da Seguridade Nacional (" + formatter.format(national_insurance) + ") e a que incide sobre a parcela dedutÃ­vel do seu salÃ¡rio (" + formatter.format(sal_deducted) + ").<br><br><strong>Entenda como funciona a deduÃ§Ã£o salarial no Reino Unido</strong><br>Os salÃ¡rios anuais dos trabalhadores do Reino Unido sÃ£o descontados em quatro nÃ­veis:<br><br>AtÃ© Â£ 12570.00: 0%<br>de Â£ 12571.00 a Â£ 50270.00: 20%<br>de Â£ 50571.00 a Â£ 150000.00: 40%<br>acima de Â£ 15000.00: 45%.<br><br>AlÃ©m da deduÃ§Ã£o sobre o salÃ¡rio lÃ­quido, os trabalhadores britÃ¢nicos tambÃ©m precisam contribuir com a Seguridade Nacional. A taxa varia de acordo com o rendimento semanal de cada pessoa. Contribuintes que recebem menos de Â£ 9880.00 por ano nÃ£o precisam arcar com esse desconto:<br><br>De Â£ 190 a Â£ 967 por semana:: 13.25%<br>acima de Â£ 967: 3.25%.<br><br>Cabe lembrar que os descontos, em ambos os casos, sÃ£o efetuados de forma escalonada. TambÃ©m hÃ¡ algumas variaÃ§Ãµes dependendo do status do contribuinte como, por exemplo, se Ã© casado ou nÃ£o."
+    }
+    if (salary >= 150000) {
+        var first_taxation = 12570 * (tax_one / 100);
+        var second_taxation = (50271 - 12570) * (tax_two / 100);
+        var third_taxation = (150000 - 50271) * (tax_three / 100);
+        var fourth_taxation = (salary - 150000) * (tax_fourth / 100);
+        var national_insurance = 4524.12 + (((salary - 50271) / 100) * 2)
+        var range_deduction = first_taxation + second_taxation + third_taxation + fourth_taxation + national_insurance;
+        var sal_deducted = range_deduction - national_insurance;
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'GBP',
+        });
+        var text_int = "Com o salÃ¡rio de " + forformatter.formatmatter(salary) + " no Reino Unido, vocÃª pagarÃ¡ o total de " + formatter.formatter.format(range_deduction) + " em taxas. Esse valor Ã© resultado de duas deduÃ§Ãµes: a da Seguridade Nacional (" + formatter.format(national_insurance) + ") e a que incide sobre a parcela dedutÃ­vel do seu salÃ¡rio (" + formatter.format(sal_deducted) + ").<br><br><strong>Entenda como funciona a deduÃ§Ã£o salarial no Reino Unido</strong><br>Os salÃ¡rios anuais dos trabalhadores do Reino Unido sÃ£o descontados em quatro nÃ­veis:<br><br>AtÃ© Â£ 12570.00: 0%<br>de Â£ 12571.00 a Â£ 50270.00: 20%<br>de Â£ 50571.00 a Â£ 150000.00: 40%<br>acima de Â£ 15000.00: 45%.<br><br>AlÃ©m da deduÃ§Ã£o sobre o salÃ¡rio lÃ­quido, os trabalhadores britÃ¢nicos tambÃ©m precisam contribuir com a Seguridade Nacional. A taxa varia de acordo com o rendimento semanal de cada pessoa. Contribuintes que recebem menos de Â£ 9880.00 por ano nÃ£o precisam arcar com esse desconto:<br><br>De Â£ 190 a Â£ 967 por semana:: 13.25%<br>acima de Â£ 967: 3.25%.<br><br>Cabe lembrar que os descontos, em ambos os casos, sÃ£o efetuados de forma escalonada. TambÃ©m hÃ¡ algumas variaÃ§Ãµes dependendo do status do contribuinte como, por exemplo, se Ã© casado ou nÃ£o."
+    }
+    if (salary < 0) {
+        var invalid = alert("OlÃ¡! Sabemos que a grana tÃ¡ curta, mas por favor insira um nÃºmero maior que zero! - Agora Europa :)");
+        var salary = 0;
+        var range_deduction = 0;
+    }
+
+    var formatter = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'GBP',
+    });
+    var total_deduction = range_deduction;
+    var deducted_salary = salary - total_deduction;
+    var deducted_salary_dec = formatter.format(deducted_salary)
+    var deduction = salary - deducted_salary;
+    var deduction_dec = formatter.format(deduction)
+    const sal_text = "SalÃ¡rio com desconto"
+    const ded_text = "Total de taxas descontadas"
+    var text = text_int
+    document.getElementById("result").innerHTML = (deducted_salary_dec);
+    document.getElementById("deduction").innerHTML = (deduction_dec);
+    document.getElementById("text").innerHTML = text;
+    document.getElementById("sal_text").innerHTML = sal_text;
+    document.getElementById("ded_text").innerHTML = ded_text;
+}
+function Italia() {
+    var text = "Na ItÃ¡lia, nem tudo Ã© massa";
+    salary = document.getElementById("salario").value;
+    var tax_one = 23
+    var tax_two = 25
+    var tax_three = 35
+    var tax_fourth = 43
+
+    if (salary <= 15000) {
+        var soc_sec = (salary / 100) * 9.19
+        var mun_tax = (salary / 100) * 0.9
+        var reg_tax = (salary / 100) * 1.73
+        var first_taxation = (salary - soc_sec - mun_tax - reg_tax) * (tax_one / 100);
+        var range_deduction = first_taxation + soc_sec + mun_tax + reg_tax;
+        var desc_salary = range_deduction - soc_sec - reg_tax - mun_tax;
+        var sum_sal = (salary - range_deduction);
+
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na ItÃ¡lia, vocÃª colocarÃ¡ no bolso, apÃ³s as deduÃ§Ãµes, o total de " + formatter.format(sum_sal) + ". O seu salÃ¡rio terÃ¡ os seguintes descontos, conforme taxas estabelecidas para este ano: <br><br>Taxa regional: " + formatter.format(reg_tax) + "<br>Taxa municipal: " + formatter.format(mun_tax) + "<br>Seguridade Social: " + formatter.format(soc_sec) + "<br>DeduÃ§Ã£o sobre salÃ¡rio: " + formatter.format(desc_salary) + "<br><br>Para esse cÃ¡lculo, utilizamos as taxas mÃ©dias municipais aplicadas em Lazio, onde tambÃ©m fica a capital do paÃ­s, Roma.<br><br><strong>Entenda como funciona a deduÃ§Ã£o salarial na ItÃ¡lia</strong><br>Os residentes da ItÃ¡lia pagam, pelo menos, cinco taxas diferentes sobre os salÃ¡rios do paÃ­s. Abaixo, nÃ³s detalhamos cada um deles.<br><br><strong>Seguridade Social</strong><br>A contribuiÃ§Ã£o obrigatÃ³rio para Seguridade Social italiana Ã© de 9,19%. Para quem ganha acima de â‚¬ 47,379.00 por ano, hÃ¡ ainda uma deduÃ§Ã£o extra de 10,19% sobre o valor excedente.<br><br><strong>Imposto regional</strong><br>Segundo o Departamento de FinanÃ§as da ItÃ¡lia, a deduÃ§Ã£o do imposto regional Ã© determinada pelo rendimento anual do contribuinte. Isso significa que quanto maior o salÃ¡rio anual, maior a deduÃ§Ã£o. Em Roma, por exemplo, sÃ£o aplicadas as seguintes faixas: <br><br>AtÃ© â‚¬ 15,000.00: 1,73%<br>acima de â‚¬ 15,000.00: 3.33%.<br><br>No entanto, o desconto pode variar de regiÃ£o para regiÃ£o. A deduÃ§Ã£o mÃ­nima no paÃ­s, no entanto, Ã© de 1,23%, enquanto a mÃ¡xima Ã© de 3,33%.<br><br><strong>Imposto municipal</strong><br>Na ItÃ¡lia, este imposto tambÃ©m Ã© definido por cada municÃ­pio, mas varia de 0% a 1,06%, segundo o Departamento de FinanÃ§as do paÃ­s. Para este cÃ¡lculo, utilizamos Roma como referÃªncia, cuja atual alÃ­quota Ã© de 0.9%."
+
+    }
+
+    if (salary > 15000 && salary <= 28000) {
+        var soc_sec = (salary / 100) * 9.19
+        var mun_tax = (salary / 100) * 0.9
+        var reg_tax = (salary / 100) * 3.33
+        var first_taxation = 15000 * (tax_one / 100);
+        var second_taxation = ((salary - soc_sec - mun_tax - reg_tax) - 15000) * (tax_two / 100);
+        var range_deduction = first_taxation + second_taxation + soc_sec + mun_tax + reg_tax;
+        var desc_salary = range_deduction - soc_sec - reg_tax - mun_tax;
+        var sum_sal = (salary - range_deduction);
+
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na ItÃ¡lia, vocÃª colocarÃ¡ no bolso, apÃ³s as deduÃ§Ãµes, o total de " + formatter.format(sum_sal) + ". O seu salÃ¡rio terÃ¡ os seguintes descontos, conforme taxas estabelecidas para este ano: <br><br>Taxa regional: " + formatter.format(reg_tax) + "<br>Taxa municipal: " + formatter.format(mun_tax) + "<br>Seguridade Social: " + formatter.format(soc_sec) + "<br>DeduÃ§Ã£o sobre salÃ¡rio: " + formatter.format(desc_salary) + "<br><br>Para esse cÃ¡lculo, utilizamos as taxas mÃ©dias municipais aplicadas em Lazio, onde tambÃ©m fica a capital do paÃ­s, Roma.<br><br><strong>Entenda como funciona a deduÃ§Ã£o salarial na ItÃ¡lia</strong><br>Os residentes da ItÃ¡lia pagam, pelo menos, cinco taxas diferentes sobre os salÃ¡rios do paÃ­s. Abaixo, nÃ³s detalhamos cada um deles.<br><br><strong>Seguridade Social</strong><br>A contribuiÃ§Ã£o obrigatÃ³rio para Seguridade Social italiana Ã© de 9,19%. Para quem ganha acima de â‚¬ 47,379.00 por ano, hÃ¡ ainda uma deduÃ§Ã£o extra de 10,19% sobre o valor excedente.<br><br><strong>Imposto regional</strong><br>Segundo o Departamento de FinanÃ§as da ItÃ¡lia, a deduÃ§Ã£o do imposto regional Ã© determinada pelo rendimento anual do contribuinte. Isso significa que quanto maior o salÃ¡rio anual, maior a deduÃ§Ã£o. Em Roma, por exemplo, sÃ£o aplicadas as seguintes faixas: <br><br>AtÃ© â‚¬ 15,000.00: 1,73%<br>acima de â‚¬ 15,000.00: 3.33%.<br><br>No entanto, o desconto pode variar de regiÃ£o para regiÃ£o. A deduÃ§Ã£o mÃ­nima no paÃ­s, no entanto, Ã© de 1,23%, enquanto a mÃ¡xima Ã© de 3,33%.<br><br><strong>Imposto municipal</strong><br>Na ItÃ¡lia, este imposto tambÃ©m Ã© definido por cada municÃ­pio, mas varia de 0% a 1,06%, segundo o Departamento de FinanÃ§as do paÃ­s. Para este cÃ¡lculo, utilizamos Roma como referÃªncia, cuja atual alÃ­quota Ã© de 0.9%."
+    }
+    if (salary >= 28001 && salary < 55000) {
+        var soc_sec = (salary / 100) * 9.19
+        var mun_tax = (salary / 100) * 0.9
+        var reg_tax = (salary / 100) * 3.33
+        var first_taxation = 15000 * (tax_one / 100);
+        var second_taxation = (28000 - 15000) * (tax_two / 100);
+        var third_taxation = ((salary - soc_sec - mun_tax - reg_tax) - 28000) * (tax_three / 100);
+        var range_deduction = first_taxation + second_taxation + third_taxation + soc_sec + mun_tax + reg_tax;
+        var desc_salary = range_deduction - soc_sec - reg_tax - mun_tax;
+        var sum_sal = (salary - range_deduction);
+
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na ItÃ¡lia, vocÃª colocarÃ¡ no bolso, apÃ³s as deduÃ§Ãµes, o total de " + formatter.format(sum_sal) + ". O seu salÃ¡rio terÃ¡ os seguintes descontos, conforme taxas estabelecidas para este ano: <br><br>Taxa regional: " + formatter.format(reg_tax) + "<br>Taxa municipal: " + formatter.format(mun_tax) + "<br>Seguridade Social: " + formatter.format(soc_sec) + "<br>DeduÃ§Ã£o sobre salÃ¡rio: " + formatter.format(desc_salary) + "<br><br>Para esse cÃ¡lculo, utilizamos as taxas mÃ©dias municipais aplicadas em Lazio, onde tambÃ©m fica a capital do paÃ­s, Roma.<br><br><strong>Entenda como funciona a deduÃ§Ã£o salarial na ItÃ¡lia</strong><br>Os residentes da ItÃ¡lia pagam, pelo menos, cinco taxas diferentes sobre os salÃ¡rios do paÃ­s. Abaixo, nÃ³s detalhamos cada um deles.<br><br><strong>Seguridade Social</strong><br>A contribuiÃ§Ã£o obrigatÃ³rio para Seguridade Social italiana Ã© de 9,19%. Para quem ganha acima de â‚¬ 47,379.00 por ano, hÃ¡ ainda uma deduÃ§Ã£o extra de 10,19% sobre o valor excedente.<br><br><strong>Imposto regional</strong><br>Segundo o Departamento de FinanÃ§as da ItÃ¡lia, a deduÃ§Ã£o do imposto regional Ã© determinada pelo rendimento anual do contribuinte. Isso significa que quanto maior o salÃ¡rio anual, maior a deduÃ§Ã£o. Em Roma, por exemplo, sÃ£o aplicadas as seguintes faixas: <br><br>AtÃ© â‚¬ 15,000.00: 1,73%<br>acima de â‚¬ 15,000.00: 3.33%.<br><br>No entanto, o desconto pode variar de regiÃ£o para regiÃ£o. A deduÃ§Ã£o mÃ­nima no paÃ­s, no entanto, Ã© de 1,23%, enquanto a mÃ¡xima Ã© de 3,33%.<br><br><strong>Imposto municipal</strong><br>Na ItÃ¡lia, este imposto tambÃ©m Ã© definido por cada municÃ­pio, mas varia de 0% a 1,06%, segundo o Departamento de FinanÃ§as do paÃ­s. Para este cÃ¡lculo, utilizamos Roma como referÃªncia, cuja atual alÃ­quota Ã© de 0.9%."
+    }
+    if (salary > 55001) {
+        var soc_sec = (salary / 100) * 9.19
+        var mun_tax = (salary / 100) * 0.9
+        var reg_tax = (salary / 100) * 3.33
+        var first_taxation = 15000 * (tax_one / 100);
+        var second_taxation = (28000 - 15000) * (tax_two / 100);
+        var third_taxation = (55001 - 28000) * (tax_three / 100);
+        var fourth_taxation = ((salary - soc_sec - mun_tax - reg_tax) - 55001) * (tax_fourth / 100);
+        var range_deduction = first_taxation + second_taxation + third_taxation + fourth_taxation + soc_sec + mun_tax + reg_tax;
+        var desc_salary = range_deduction - soc_sec - reg_tax - mun_tax;
+        var sum_sal = (salary - range_deduction);
+
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na ItÃ¡lia, vocÃª colocarÃ¡ no bolso, apÃ³s as deduÃ§Ãµes, o total de " + formatter.format(sum_sal) + ". O seu salÃ¡rio terÃ¡ os seguintes descontos, conforme taxas estabelecidas para este ano: <br><br>Taxa regional: " + formatter.format(reg_tax) + "<br>Taxa municipal: " + formatter.format(mun_tax) + "<br>Seguridade Social: " + formatter.format(soc_sec) + "<br>DeduÃ§Ã£o sobre salÃ¡rio: " + formatter.format(desc_salary) + "<br><br>Para esse cÃ¡lculo, utilizamos as taxas mÃ©dias municipais aplicadas em Lazio, onde tambÃ©m fica a capital do paÃ­s, Roma.<br><br><strong>Entenda como funciona a deduÃ§Ã£o salarial na ItÃ¡lia</strong><br>Os residentes da ItÃ¡lia pagam, pelo menos, cinco taxas diferentes sobre os salÃ¡rios do paÃ­s. Abaixo, nÃ³s detalhamos cada um deles.<br><br><strong>Seguridade Social</strong><br>A contribuiÃ§Ã£o obrigatÃ³rio para Seguridade Social italiana Ã© de 9,19%. Para quem ganha acima de â‚¬ 47,379.00 por ano, hÃ¡ ainda uma deduÃ§Ã£o extra de 10,19% sobre o valor excedente.<br><br><strong>Imposto regional</strong><br>Segundo o Departamento de FinanÃ§as da ItÃ¡lia, a deduÃ§Ã£o do imposto regional Ã© determinada pelo rendimento anual do contribuinte. Isso significa que quanto maior o salÃ¡rio anual, maior a deduÃ§Ã£o. Em Roma, por exemplo, sÃ£o aplicadas as seguintes faixas: <br><br>AtÃ© â‚¬ 15,000.00: 1,73%<br>acima de â‚¬ 15,000.00: 3.33%.<br><br>No entanto, o desconto pode variar de regiÃ£o para regiÃ£o. A deduÃ§Ã£o mÃ­nima no paÃ­s, no entanto, Ã© de 1,23%, enquanto a mÃ¡xima Ã© de 3,33%.<br><br><strong>Imposto municipal</strong><br>Na ItÃ¡lia, este imposto tambÃ©m Ã© definido por cada municÃ­pio, mas varia de 0% a 1,06%, segundo o Departamento de FinanÃ§as do paÃ­s. Para este cÃ¡lculo, utilizamos Roma como referÃªncia, cuja atual alÃ­quota Ã© de 0.9%."
+    }
+    if (salary < 0) {
+        var invalid = alert("OlÃ¡! Sabemos que a grana tÃ¡ curta, mas por favor insira um nÃºmero maior que zero! - Agora Europa :)");
+        var salary = 0;
+        var range_deduction = 0;
+    }
+
+    var formatter = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'EUR',
+    });
+
+    var total_deduction = range_deduction;
+    var deducted_salary = salary - total_deduction;
+    var deducted_salary_dec = formatter.format(deducted_salary)
+    var deduction = salary - deducted_salary;
+    var deduction_dec = formatter.format(deduction)
+    const sal_text = "SalÃ¡rio com desconto"
+    const ded_text = "Total de taxas descontadas"
+    var text = text_int
+    document.getElementById("result").innerHTML = (deducted_salary_dec);
+    document.getElementById("deduction").innerHTML = (deduction_dec);
+    document.getElementById("text").innerHTML = text;
+    document.getElementById("sal_text").innerHTML = sal_text;
+    document.getElementById("ded_text").innerHTML = ded_text;
+}
+function Espanha() {
+    salary = document.getElementById("salario").value;
+    var tax_one = 19
+    var tax_two = 24
+    var tax_three = 30
+    var tax_fourth = 37
+    var tax_fifth = 45
+    if (salary < 5550) {
+        const soc_sec = (salary / 100) * 6.35
+        var range_deduction = soc_sec;
+        var sum_deductions = 0;
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Espanha, vocÃª pagarÃ¡ " + formatter.format(soc_sec) + " como contribuiÃ§Ã£o de Seguridade Social. Esse imposto corresponde a 6,35% do salÃ¡rio e Ã© obrigatÃ³rio para todos os trabalhadores do paÃ­s.<br><br>Alem disso, com o salÃ¡rio mencionado, vocÃª nÃ£o terÃ¡ nenhuma outra taxa descontada da sua remuneraÃ§Ã£o. Isso se deve ao fato de que rendimentos anuais inferiores a â‚¬ 5.550 estÃ£o isentos de deduÃ§Ãµes.<br><br>A Espanha possui pelo menos 5 faixas de deduÃ§Ãµes salariais, alÃ©m da jÃ¡ mencionada contribuiÃ§Ã£o de Seguridade Social. Cada regiÃ£o Ã© autÃ´noma, o que faz com que os valores variem, levemente, entre eles. De modo geral, no entanto, estas sÃ£o as faixas salariais com as respectivas porcentagens de deduÃ§Ãµes salariais:<br><br>0 - â‚¬12,450.00: 19% de desconto<br>â‚¬12,450.00 - â‚¬20,200.00: 24% de desconto<br>â‚¬20,200.00 - â‚¬35,200.00: 30% de desconto<br>â‚¬35,200.00 - â‚¬60,000.00: 37% de desconto<br>Acima de â‚¬60,000.00: 45% de desconto<br><br>Cabe ressaltar que o valor mÃ¡ximo estabelecido para contribuiÃ§Ã£o de Seguridade Social Ã© de â‚¬ 3,596.98. O valor da deduÃ§Ã£o salarial tambÃ©m pode sofrer variaÃ§Ãµes caso o contribuinte seja maior de 65 anos ou possua filhos.<br><br>Algumas regras sÃ£o importantes de entender quando o assunto Ã© deduÃ§Ã£o salarial na Espanha. De modo geral, os rendimentos sÃ£o descontados de forma progressiva, conforme jÃ¡ detalhado na lista acima. Isso significa que cada faixa gerarÃ¡ um desconto e, ao final, todos serÃ£o somados Ã  contribuiÃ§Ã£o de Seguridade Social. Um salÃ¡rio superior a â‚¬ 60,000.00, por exemplo, serÃ¡ deduzido em 5 faixas."
+    }
+    if (salary > 5550 && salary <= 12450) {
+        const soc_sec = (salary / 100) * 6.35
+        const deductable_first = ((salary - (5550 + soc_sec)) / 100) * 19
+        var range_deduction = soc_sec + deductable_first;
+        var sum_deductions = deductable_first;
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Espanha, vocÃª pagarÃ¡ " + formatter.format(soc_sec) + " como contribuiÃ§Ã£o de Seguridade Social. Esse imposto corresponde a 6,35% do salÃ¡rio e Ã© obrigatÃ³rio para todos os trabalhadores do paÃ­s. AlÃ©m disso, com o salÃ¡rio mencionado, vocÃª tambÃ©m terÃ¡ o total de " + formatter.format(sum_deductions) + " euros descontados do seu salÃ¡rio anual. <br><br>A Espanha possui pelo menos 5 faixas de deduÃ§Ãµes salariais, alÃ©m da jÃ¡ mencionada contribuiÃ§Ã£o de Seguridade Social. Cada regiÃ£o Ã© autÃ´noma no que tange Ã  taxaÃ§Ã£o sobre os salÃ¡rios, o que faz com que os valores variem, levemente, entre eles. De modo geral, no entanto, estas sÃ£o as faixas salariais com as respectivas porcentagens de deduÃ§Ãµes salariais:<br><br>0 - â‚¬12,450.00: 19% de desconto<br>â‚¬12,450.00 - â‚¬20,200.00: 24% de desconto<br>â‚¬20,200.00 - â‚¬35,200.00: 30% de desconto<br>â‚¬35,200.00 - â‚¬60,000.00: 37% de desconto<br>Acima de â‚¬60,000.00: 45% de desconto<br><br>Cabe ressaltar que o valor mÃ¡ximo estabelecido para contribuiÃ§Ã£o de Seguridade Social Ã© de â‚¬ 3,596.98. O valor da deduÃ§Ã£o salarial tambÃ©m pode sofrer variaÃ§Ãµes caso o contribuinte seja maior de 65 anos ou possua filhos.<br><br>Algumas regras sÃ£o importantes de entender quando o assunto Ã© deduÃ§Ã£o salarial na Espanha. De modo geral, os rendimentos sÃ£o descontados de forma progressiva, conforme jÃ¡ detalhado na lista acima. Isso significa que cada faixa gerarÃ¡ um desconto e, ao final, todos serÃ£o somados Ã  contribuiÃ§Ã£o de Seguridade Social. Um salÃ¡rio superior a â‚¬ 60,000.00, por exemplo, serÃ¡ deduzido em 5 faixas.";
+    }
+    if (salary > 12450 && salary <= 20200) {
+        const soc_sec = (salary / 100) * 6.35
+        const deductable_first = (12450 / 100) * 19
+        const deductable_second = (((salary - 12450) - (5550 + soc_sec)) / 100) * 24
+        var range_deduction = soc_sec + deductable_first + deductable_second;
+        var sum_deductions = deductable_first + deductable_second;
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Espanha, vocÃª pagarÃ¡ " + formatter.format(soc_sec) + " como contribuiÃ§Ã£o de Seguridade Social. Esse imposto corresponde a 6,35% do salÃ¡rio e Ã© obrigatÃ³rio para todos os trabalhadores do paÃ­s. AlÃ©m disso, com o salÃ¡rio mencionado, vocÃª tambÃ©m terÃ¡ o total de " + formatter.format(sum_deductions) + " euros descontados do seu salÃ¡rio anual. <br><br>A Espanha possui pelo menos 5 faixas de deduÃ§Ãµes salariais, alÃ©m da jÃ¡ mencionada contribuiÃ§Ã£o de Seguridade Social. Cada regiÃ£o Ã© autÃ´noma no que tange Ã  taxaÃ§Ã£o sobre os salÃ¡rios, o que faz com que os valores variem, levemente, entre eles. De modo geral, no entanto, estas sÃ£o as faixas salariais com as respectivas porcentagens de deduÃ§Ãµes salariais:<br><br>0 - â‚¬12,450.00: 19% de desconto<br>â‚¬12,450.00 - â‚¬20,200.00: 24% de desconto<br>â‚¬20,200.00 - â‚¬35,200.00: 30% de desconto<br>â‚¬35,200.00 - â‚¬60,000.00: 37% de desconto<br>Acima de â‚¬60,000.00: 45% de desconto<br><br>Cabe ressaltar que o valor mÃ¡ximo estabelecido para contribuiÃ§Ã£o de Seguridade Social Ã© de â‚¬ 3,596.98. O valor da deduÃ§Ã£o salarial tambÃ©m pode sofrer variaÃ§Ãµes caso o contribuinte seja maior de 65 anos ou possua filhos.<br><br>Algumas regras sÃ£o importantes de entender quando o assunto Ã© deduÃ§Ã£o salarial na Espanha. De modo geral, os rendimentos sÃ£o descontados de forma progressiva, conforme jÃ¡ detalhado na lista acima. Isso significa que cada faixa gerarÃ¡ um desconto e, ao final, todos serÃ£o somados Ã  contribuiÃ§Ã£o de Seguridade Social. Um salÃ¡rio superior a â‚¬ 60,000.00, por exemplo, serÃ¡ deduzido em 5 faixas.";
+    }
+    if (salary > 20200 && salary <= 35200) {
+        const soc_sec = (salary / 100) * 6.35
+        const deductable_first = (12450 / 100) * 19
+        const deductable_second = ((20200 - 12450) / 100) * 24
+        const deductable_third = (((salary - 20200) - (5550 + soc_sec)) / 100) * 30
+        var range_deduction = soc_sec + deductable_first + deductable_second + deductable_third;
+        var sum_deductions = deductable_first + deductable_second + deductable_third;
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Espanha, vocÃª pagarÃ¡ " + formatter.format(soc_sec) + " como contribuiÃ§Ã£o de Seguridade Social. Esse imposto corresponde a 6,35% do salÃ¡rio e Ã© obrigatÃ³rio para todos os trabalhadores do paÃ­s. AlÃ©m disso, com o salÃ¡rio mencionado, vocÃª tambÃ©m terÃ¡ o total de " + formatter.format(sum_deductions) + " euros descontados do seu salÃ¡rio anual. <br><br>A Espanha possui pelo menos 5 faixas de deduÃ§Ãµes salariais, alÃ©m da jÃ¡ mencionada contribuiÃ§Ã£o de Seguridade Social. Cada regiÃ£o Ã© autÃ´noma no que tange Ã  taxaÃ§Ã£o sobre os salÃ¡rios, o que faz com que os valores variem, levemente, entre eles. De modo geral, no entanto, estas sÃ£o as faixas salariais com as respectivas porcentagens de deduÃ§Ãµes salariais:<br><br>0 - â‚¬12,450.00: 19% de desconto<br>â‚¬12,450.00 - â‚¬20,200.00: 24% de desconto<br>â‚¬20,200.00 - â‚¬35,200.00: 30% de desconto<br>â‚¬35,200.00 - â‚¬60,000.00: 37% de desconto<br>Acima de â‚¬60,000.00: 45% de desconto<br><br>Cabe ressaltar que o valor mÃ¡ximo estabelecido para contribuiÃ§Ã£o de Seguridade Social Ã© de â‚¬ 3,596.98. O valor da deduÃ§Ã£o salarial tambÃ©m pode sofrer variaÃ§Ãµes caso o contribuinte seja maior de 65 anos ou possua filhos.<br><br>Algumas regras sÃ£o importantes de entender quando o assunto Ã© deduÃ§Ã£o salarial na Espanha. De modo geral, os rendimentos sÃ£o descontados de forma progressiva, conforme jÃ¡ detalhado na lista acima. Isso significa que cada faixa gerarÃ¡ um desconto e, ao final, todos serÃ£o somados Ã  contribuiÃ§Ã£o de Seguridade Social. Um salÃ¡rio superior a â‚¬ 60,000.00, por exemplo, serÃ¡ deduzido em 5 faixas.";
+    }
+    if (salary > 35200 && salary <= 60000) {
+        const soc_sec = (salary / 100) * 6.35
+        if (soc_sec < 3596.98) {
+            const soc_sec = (salary / 100) * 6.35
+            const deductable_first = (12450 / 100) * 19
+            const deductable_second = ((20200 - 12450) / 100) * 24
+            const deductable_third = ((35200 - 20200) / 100) * 30
+            const deductable_fourth = (((salary - 35200) - (5550 + soc_sec)) / 100) * 37
+            var range_deduction = soc_sec + deductable_first + deductable_second + deductable_third + deductable_fourth;
+            var sum_deductions = deductable_first + deductable_second + deductable_third + deductable_fourth;
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'EUR',
+            });
+            var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Espanha, vocÃª pagarÃ¡ " + formatter.format(soc_sec) + " como contribuiÃ§Ã£o de Seguridade Social. Esse imposto corresponde a 6,35% do salÃ¡rio e Ã© obrigatÃ³rio para todos os trabalhadores do paÃ­s. AlÃ©m disso, com o salÃ¡rio mencionado, vocÃª tambÃ©m terÃ¡ o total de " + formatter.format(sum_deductions) + " euros descontados do seu salÃ¡rio anual. <br><br>A Espanha possui pelo menos 5 faixas de deduÃ§Ãµes salariais, alÃ©m da jÃ¡ mencionada contribuiÃ§Ã£o de Seguridade Social. Cada regiÃ£o Ã© autÃ´noma no que tange Ã  taxaÃ§Ã£o sobre os salÃ¡rios, o que faz com que os valores variem, levemente, entre eles. De modo geral, no entanto, estas sÃ£o as faixas salariais com as respectivas porcentagens de deduÃ§Ãµes salariais:<br><br>0 - â‚¬12,450.00: 19% de desconto<br>â‚¬12,450.00 - â‚¬20,200.00: 24% de desconto<br>â‚¬20,200.00 - â‚¬35,200.00: 30% de desconto<br>â‚¬35,200.00 - â‚¬60,000.00: 37% de desconto<br>Acima de â‚¬60,000.00: 45% de desconto<br><br>Cabe ressaltar que o valor mÃ¡ximo estabelecido para contribuiÃ§Ã£o de Seguridade Social Ã© de â‚¬ 3,596.98. O valor da deduÃ§Ã£o salarial tambÃ©m pode sofrer variaÃ§Ãµes caso o contribuinte seja maior de 65 anos ou possua filhos.<br><br>Algumas regras sÃ£o importantes de entender quando o assunto Ã© deduÃ§Ã£o salarial na Espanha. De modo geral, os rendimentos sÃ£o descontados de forma progressiva, conforme jÃ¡ detalhado na lista acima. Isso significa que cada faixa gerarÃ¡ um desconto e, ao final, todos serÃ£o somados Ã  contribuiÃ§Ã£o de Seguridade Social. Um salÃ¡rio superior a â‚¬ 60,000.00, por exemplo, serÃ¡ deduzido em 5 faixas.";
+        } else {
+            const soc_sec = 3596.98
+            const deductable_first = (12450 / 100) * 19
+            const deductable_second = ((20200 - 12450) / 100) * 24
+            const deductable_third = ((35200 - 20200) / 100) * 30
+            const deductable_fourth = (((salary - 35200) - (5550 + soc_sec)) / 100) * 37
+            var range_deduction = soc_sec + deductable_first + deductable_second + deductable_third + deductable_fourth;
+            var sum_deductions = deductable_first + deductable_second + deductable_third + deductable_fourth;
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'EUR',
+            });
+            var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Espanha, vocÃª pagarÃ¡" + formatter.format(soc_sec) + " como contribuiÃ§Ã£o de Seguridade Social. Esse imposto corresponde a 6,35% do salÃ¡rio e Ã© obrigatÃ³rio para todos os trabalhadores do paÃ­s. AlÃ©m disso, com o salÃ¡rio mencionado, vocÃª tambÃ©m terÃ¡ o total de " + formatter.format(sum_deductions) + " euros descontados do seu salÃ¡rio anual. <br><br>A Espanha possui pelo menos 5 faixas de deduÃ§Ãµes salariais, alÃ©m da jÃ¡ mencionada contribuiÃ§Ã£o de Seguridade Social. Cada regiÃ£o Ã© autÃ´noma no que tange Ã  taxaÃ§Ã£o sobre os salÃ¡rios, o que faz com que os valores variem, levemente, entre eles. De modo geral, no entanto, estas sÃ£o as faixas salariais com as respectivas porcentagens de deduÃ§Ãµes salariais:<br><br>0 - â‚¬12,450.00: 19% de desconto<br>â‚¬12,450.00 - â‚¬20,200.00: 24% de desconto<br>â‚¬20,200.00 - â‚¬35,200.00: 30% de desconto<br>â‚¬35,200.00 - â‚¬60,000.00: 37% de desconto<br>Acima de â‚¬60,000.00: 45% de desconto<br><br>Cabe ressaltar que o valor mÃ¡ximo estabelecido para contribuiÃ§Ã£o de Seguridade Social Ã© de â‚¬ 3,596.98. O valor da deduÃ§Ã£o salarial tambÃ©m pode sofrer variaÃ§Ãµes caso o contribuinte seja maior de 65 anos ou possua filhos.<br><br>Algumas regras sÃ£o importantes de entender quando o assunto Ã© deduÃ§Ã£o salarial na Espanha. De modo geral, os rendimentos sÃ£o descontados de forma progressiva, conforme jÃ¡ detalhado na lista acima. Isso significa que cada faixa gerarÃ¡ um desconto e, ao final, todos serÃ£o somados Ã  contribuiÃ§Ã£o de Seguridade Social. Um salÃ¡rio superior a â‚¬ 60,000.00, por exemplo, serÃ¡ deduzido em 5 faixas.";
+        }
+    }
+    if (salary > 60000) {
+        const soc_sec = (salary / 100) * 6.35
+        if (soc_sec > 3596.98) {
+            const soc_sec = 3596.98
+            const deductable_first = (12450 / 100) * 19
+            const deductable_second = ((20200 - 12450) / 100) * 24
+            const deductable_third = ((35200 - 20200) / 100) * 30
+            const deductable_fourth = ((60000 - 35200) / 100) * 37
+            const deductable_fifth = (((salary - 60000) - (5550 + soc_sec)) / 100) * 45
+            var range_deduction = soc_sec + deductable_first + deductable_second + deductable_third + deductable_fourth + deductable_fifth;
+            var sum_deductions = deductable_first + deductable_second + deductable_third + deductable_fourth + deductable_fifth;
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'EUR',
+            });
+            var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Espanha, vocÃª pagarÃ¡ " + formatter.format(soc_sec) + " como contribuiÃ§Ã£o de Seguridade Social. Esse imposto corresponde a 6,35% do salÃ¡rio e Ã© obrigatÃ³rio para todos os trabalhadores do paÃ­s. AlÃ©m disso, com o salÃ¡rio mencionado, vocÃª tambÃ©m terÃ¡ o total de " + formatter.format(sum_deductions) + " euros descontados do seu salÃ¡rio anual. <br><br>A Espanha possui pelo menos 5 faixas de deduÃ§Ãµes salariais, alÃ©m da jÃ¡ mencionada contribuiÃ§Ã£o de Seguridade Social. Cada regiÃ£o Ã© autÃ´noma no que tange Ã  taxaÃ§Ã£o sobre os salÃ¡rios, o que faz com que os valores variem, levemente, entre eles. De modo geral, no entanto, estas sÃ£o as faixas salariais com as respectivas porcentagens de deduÃ§Ãµes salariais:<br><br>0 - â‚¬12,450.00: 19% de desconto<br>â‚¬12,450.00 - â‚¬20,200.00: 24% de desconto<br>â‚¬20,200.00 - â‚¬35,200.00: 30% de desconto<br>â‚¬35,200.00 - â‚¬60,000.00: 37% de desconto<br>Acima de â‚¬60,000.00: 45% de desconto<br><br>Cabe ressaltar que o valor mÃ¡ximo estabelecido para contribuiÃ§Ã£o de Seguridade Social Ã© de â‚¬ 3,596.98. O valor da deduÃ§Ã£o salarial tambÃ©m pode sofrer variaÃ§Ãµes caso o contribuinte seja maior de 65 anos ou possua filhos.<br><br>Algumas regras sÃ£o importantes de entender quando o assunto Ã© deduÃ§Ã£o salarial na Espanha. De modo geral, os rendimentos sÃ£o descontados de forma progressiva, conforme jÃ¡ detalhado na lista acima. Isso significa que cada faixa gerarÃ¡ um desconto e, ao final, todos serÃ£o somados Ã  contribuiÃ§Ã£o de Seguridade Social. Um salÃ¡rio superior a â‚¬ 60,000.00, por exemplo, serÃ¡ deduzido em 5 faixas.";
+        } else {
+            const soc_sec = (salary / 100) * 6.35
+            const deductable_first = (12450 / 100) * 19
+            const deductable_second = ((20200 - 12450) / 100) * 24
+            const deductable_third = ((35200 - 20200) / 100) * 30
+            const deductable_fourth = ((60000 - 35200) / 100) * 37
+            const deductable_fifth = (((salary - 60000) - (5550 + soc_sec)) / 100) * 45
+            var range_deduction = soc_sec + deductable_first + deductable_second + deductable_third + deductable_fourth + deductable_fifth;
+            var sum_deductions = deductable_first + deductable_second + deductable_third + deductable_fourth + deductable_fifth;
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'EUR',
+            });
+            var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na Espanha, vocÃª pagarÃ¡ " + formatter.format(soc_sec) + " como contribuiÃ§Ã£o de Seguridade Social. Esse imposto corresponde a 6,35% do salÃ¡rio e Ã© obrigatÃ³rio para todos os trabalhadores do paÃ­s. AlÃ©m disso, com o salÃ¡rio mencionado, vocÃª tambÃ©m terÃ¡ o total de " + formatter.format(sum_deductions) + " euros descontados do seu salÃ¡rio anual. <br><br>A Espanha possui pelo menos 5 faixas de deduÃ§Ãµes salariais, alÃ©m da jÃ¡ mencionada contribuiÃ§Ã£o de Seguridade Social. Cada regiÃ£o Ã© autÃ´noma no que tange Ã  taxaÃ§Ã£o sobre os salÃ¡rios, o que faz com que os valores variem, levemente, entre eles. De modo geral, no entanto, estas sÃ£o as faixas salariais com as respectivas porcentagens de deduÃ§Ãµes salariais:<br><br>0 - â‚¬12,450.00: 19% de desconto<br>â‚¬12,450.00 - â‚¬20,200.00: 24% de desconto<br>â‚¬20,200.00 - â‚¬35,200.00: 30% de desconto<br>â‚¬35,200.00 - â‚¬60,000.00: 37% de desconto<br>Acima de â‚¬60,000.00: 45% de desconto<br><br>Cabe ressaltar que o valor mÃ¡ximo estabelecido para contribuiÃ§Ã£o de Seguridade Social Ã© de â‚¬ 3,596.98. O valor da deduÃ§Ã£o salarial tambÃ©m pode sofrer variaÃ§Ãµes caso o contribuinte seja maior de 65 anos ou possua filhos.<br><br>Algumas regras sÃ£o importantes de entender quando o assunto Ã© deduÃ§Ã£o salarial na Espanha. De modo geral, os rendimentos sÃ£o descontados de forma progressiva, conforme jÃ¡ detalhado na lista acima. Isso significa que cada faixa gerarÃ¡ um desconto e, ao final, todos serÃ£o somados Ã  contribuiÃ§Ã£o de Seguridade Social. Um salÃ¡rio superior a â‚¬ 60,000.00, por exemplo, serÃ¡ deduzido em 5 faixas.";
+        }
+    }
+    var formatter = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'EUR',
+    });
+    var total_deduction = range_deduction;
+    var deducted_salary = salary - total_deduction;
+    var deducted_salary_dec = formatter.format(deducted_salary)
+    var deduction = salary - deducted_salary;
+    var deduction_dec = formatter.format(deduction)
+    const sal_text = "SalÃ¡rio com desconto"
+    const ded_text = "Total de taxas descontadas"
+    var text = text_int
+    document.getElementById("result").innerHTML = (deducted_salary_dec);
+    document.getElementById("deduction").innerHTML = (deduction_dec);
+    document.getElementById("text").innerHTML = text;
+    document.getElementById("sal_text").innerHTML = sal_text;
+    document.getElementById("ded_text").innerHTML = ded_text;
+}
+function Alemanha() {
+    salary = document.getElementById("salario").value;
+    var tax_one = 0
+    var tax_two = (salary - 9985) / 1736.107 + 14
+    var tax_three = 42
+    var tax_fourth = 45
+    if (salary <= 9984) {
+        var first_taxation = salary * (tax_one / 100);
+        var range_deduction = first_taxation;
+    }
+    if (salary > 9984 && salary <= 58596) {
+        var first_taxation = 9984 * (tax_one / 100);
+        var second_taxation = (salary - 9984) * (tax_two / 100);
+        var range_deduction = first_taxation + second_taxation;
+    }
+    if (salary >= 58597 && salary < 277825) {
+        var first_taxation = 9984 * (tax_one / 100);
+        var second_taxation = (58596 - 9984) * (42 / 100);
+        var third_taxation = (salary - 58596) * (tax_three / 100);
+        var range_deduction = first_taxation + second_taxation + third_taxation;
+    }
+    if (salary > 277825) {
+        var first_taxation = 9984 * (tax_one / 100);
+        var second_taxation = (58596 - 9984) * (42 / 100);
+        var third_taxation = (277825 - 58596) * (tax_three / 100);
+        var fourth_taxation = (salary - 277825) * (tax_fourth / 100);
+        var range_deduction = first_taxation + second_taxation + third_taxation + fourth_taxation;
+    }
+    if (salary < 0) {
+        var invalid = alert("OlÃ¡! Sabemos que a grana tÃ¡ curta, mas por favor insira um nÃºmero maior que zero! - Agora Europa :)");
+        var salary = 0;
+        var range_deduction = 0;
+    }
+    var total_deduction = range_deduction;
+    var deducted_salary = salary - total_deduction;
+    var deducted_salary_dec = parseFloat(deducted_salary).toFixed(2)
+    var deduction = salary - deducted_salary;
+    var deduction_dec = parseFloat(deduction).toFixed(2)
+    const sal_text = "SalÃ¡rio com desconto"
+    const ded_text = "Total de taxas descontadas"
+    var text = 0
+    document.getElementById("result").innerHTML = ("â‚¬ " + deducted_salary_dec);
+    document.getElementById("deduction").innerHTML = ("â‚¬ " + deduction_dec);
+    document.getElementById("text").innerHTML = text;
+    document.getElementById("sal_text").innerHTML = sal_text;
+    document.getElementById("ded_text").innerHTML = ded_text;
+}
+function Franca() {
+    var text = "FranÃ§a em teste";
+    salary = document.getElementById("salario").value;
+    if (salary <= 35000) {
+        const max_sal = 35000
+        const max_social = 7351
+        const max_pit = 1695
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 35000 && salary <= 40000) {
+        const max_sal = 40000
+        const max_social = 8401
+        const max_pit = 2761
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 40000 && salary <= 45000) {
+        const max_sal = 45000
+        const max_social = 9405
+        const max_pit = 3879
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 45000 && salary <= 50000) {
+        const max_sal = 50000
+        const max_social = 10395
+        const max_pit = 5000
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 50000 && salary <= 55000) {
+        const max_sal = 55000
+        const max_social = 11387
+        const max_pit = 6121
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 55000 && salary <= 60000) {
+        const max_sal = 60000
+        const max_social = 12377
+        const max_pit = 7242
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 60000 && salary <= 65000) {
+        const max_sal = 65000
+        const max_social = 13368
+        const max_pit = 8363
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 65000 && salary <= 70000) {
+        const max_sal = 70000
+        const max_social = 14359
+        const max_pit = 9483
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 70000 && salary <= 75000) {
+        const max_sal = 75000
+        const max_social = 15349
+        const max_pit = 10605
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 75000 && salary <= 80000) {
+        const max_sal = 80000
+        const max_social = 16340
+        const max_pit = 11725
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 80000 && salary <= 85000) {
+        const max_sal = 85000
+        const max_social = 17331
+        const max_pit = 12847
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 85000 && salary <= 90000) {
+        const max_sal = 90000
+        const max_social = 18322
+        const max_pit = 13967
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 90000 && salary <= 95000) {
+        const max_sal = 95000
+        const max_social = 19312
+        const max_pit = 15088
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 95000 && salary <= 100000) {
+        const max_sal = 100000
+        const max_social = 20303
+        const max_pit = 16209
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 100000 && salary <= 105000) {
+        const max_sal = 105000
+        const max_social = 21294
+        const max_pit = 17713
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 105000 && salary <= 110000) {
+        const max_sal = 110000
+        const max_social = 22284
+        const max_pit = 19246
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 110000 && salary <= 120000) {
+        const max_sal = 120000
+        const max_social = 24266
+        const max_pit = 22310
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 120000 && salary <= 150000) {
+        const max_sal = 150000
+        const max_social = 30210
+        const max_pit = 31502
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 150000 && salary <= 200000) {
+        const max_sal = 200000
+        const max_social = 40169
+        const max_pit = 48336
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de " + formatter.format(range_deduction) + " em taxas. Parte desse valor, " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT.<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% do salÃ¡rio."
+    }
+    if (salary > 200000 && salary <= 250000) {
+        const max_sal = 250000
+        const max_social = 50149
+        const max_pit = 66693
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal);
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de â‚¬ " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de â‚¬ " + formatter.format(range_deduction) + " em taxas. Parte desse valor, â‚¬ " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, â‚¬ " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT. Para o salÃ¡rio que vocÃª escolheu, tambÃ©m existe uma taxa extra de 3%, que neste caso corresponde a â‚¬ " + formatter.format(surcharge) + ".<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% sobre o excedente."
+    }
+    if (salary > 250000 && salary <= 300000) {
+        const surcharge = (salary - 250000) / 100 * 3
+        const max_sal = 300000
+        const max_social = 60129
+        const max_pit = 85355
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal) + surcharge;
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de â‚¬ " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de â‚¬ " + formatter.format(range_deduction) + " em taxas. Parte desse valor, â‚¬ " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, â‚¬ " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT. Para o salÃ¡rio que vocÃª escolheu, tambÃ©m existe uma taxa extra de 3%, que neste caso corresponde a â‚¬ " + formatter.format(surcharge) + ".<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% sobre o excedente."
+    }
+    if (salary > 300000) {
+        const surcharge = (salary - 250000) / 100 * 3
+        const max_sal = 300000
+        const max_social = 60129
+        const max_pit = 85355
+        const tax = ((salary - 300000) / 100) * 45
+        var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal) + surcharge;
+        const soc_cont = ((salary * max_social) / max_sal)
+        const pit_cont = ((salary * max_pit) / max_sal)
+        var formatter = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'EUR',
+        });
+        var text_int = "Com o salÃ¡rio de â‚¬ " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de â‚¬ " + formatter.format(range_deduction) + " em taxas. Parte desse valor, â‚¬ " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, â‚¬ " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT. Para o salÃ¡rio que vocÃª escolheu, tambÃ©m existe uma taxa extra de 3%, que neste caso corresponde a â‚¬ " + formatter.format(surcharge) + ".<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% sobre o excedente."
+        if (salary > 500000) {
+            const surcharge = (salary - 250000) / 100 * 4
+            const max_sal = 300000
+            const max_social = 60129
+            const max_pit = 85355
+            const tax = ((salary - 300000) / 100) * 45
+            var range_deduction = ((salary * max_social) / max_sal) + ((salary * max_pit) / max_sal) + surcharge;
+            const soc_cont = ((salary * max_social) / max_sal)
+            const pit_cont = ((salary * max_pit) / max_sal)
+            var formatter = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'EUR',
+            });
+            var text_int = "Com o salÃ¡rio de â‚¬ " + formatter.format(salary) + " na FranÃ§a, vocÃª pagarÃ¡ o total de â‚¬ " + formatter.format(range_deduction) + " em taxas. Parte desse valor, â‚¬ " + formatter.format(soc_cont) + ", Ã© dedicado Ã  Seguridade Social. JÃ¡ a outra parcela das deduÃ§Ãµes, â‚¬ " + formatter.format(pit_cont) + ", corresponde ao imposto de renda pessoal, ou PIT. Para o salÃ¡rio que vocÃª escolheu, tambÃ©m existe uma taxa extra de 3%, que neste caso corresponde a â‚¬ " + formatter.format(surcharge) + ".<br><br><strong>Entenda como funciona o sistema francÃªs</strong><br>Na FranÃ§a, os salÃ¡rios podem ser deduzidos em atÃ© 21 nÃ­veis diferentes. A deduÃ§Ã£o do PIT depende tambÃ©m do status familiar do contribuinte, como, por exemplo, se possui filhos ou se Ã© casado.<br><br>Cada faixa salarial possui um valor mÃ¡ximo de contribuiÃ§Ã£o para Seguridade Social, assim como um teto para o PIT. Os descontos, no entanto, sÃ£o progressivos. Todas as pessoas que recebem acima de â‚¬ 250 mil tambÃ©m contribuem com uma taxa extra de 3% sobre o excedente."
+        }
+    }
+
+    var formatter = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'EUR',
+    });
+    var total_deduction = range_deduction;
+    var deducted_salary = salary - total_deduction;
+    var deducted_salary_dec = formatter.format(deducted_salary)
+    var deduction = salary - deducted_salary;
+    var deduction_dec = formatter.format(deduction)
+    const sal_text = "SalÃ¡rio com desconto"
+    const ded_text = "Total de taxas descontadas"
+    var text = text_int
+    document.getElementById("result").innerHTML = (deducted_salary_dec);
+    document.getElementById("deduction").innerHTML = (deduction_dec);
+    document.getElementById("text").innerHTML = text;
+    document.getElementById("sal_text").innerHTML = sal_text;
+    document.getElementById("ded_text").innerHTML = ded_text;
+
+
+
+
