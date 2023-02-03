@@ -1,0 +1,3 @@
+https://learn.microsoft.com/pt-br/certifications/azure-data-fundamentals/?source=learn
+
+Realizar os 4 módulos logado no email da microsoft = senaidf.org.br
