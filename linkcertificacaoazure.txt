@@ -1,3 +1,5 @@
 https://learn.microsoft.com/pt-br/certifications/azure-data-fundamentals/?source=learn
 
 Realizar os 4 módulos logado no email da microsoft = senaidf.org.br
+
+https://github.com/kellysc2013/dicas_sql_jquery/blob/master/EXEMPLO%20-%20CASE%20WHEN%20ANINHADO%20-%20script%20postgresql.sql
